@@ -1,20 +1,29 @@
 #include <iostream>
 #include <cmath>
+#include <conio.h>
 using namespace std;
 
 int main()
 {
-	cout << "PROGETTO POLINOMI\n\n";
+	char carattere;
+	cout << "\x1b[33mPROGETTO POLINOMI\n\n\x1b[0mROTA MICHAEL\nCOLOMBO FRANCESCO\nSPINELLI FILIPPO\n\n\nPremi un tasto per continuare . . . ";
+	carattere = getch();
+	bool primo = true;
+	
+	system( "cls" );
+		int pol1[4] {0};
+		int pol2[4] {0};
+		int numeri;
 
 	while (true)
 	{
-
-		int pol1[4];
-		int pol2[4];
-
+        if ( primo == true ) {
+        	cout << "Quale grado vuoi inserire : ";
+        	cin >> numeri;
+        
 		cout << "Primo polinomio\n\n";
 
-		for (int i = 3; i >= 0; i--)
+		for (int i = numeri; i >= 0; i--)
 		{
 			if (i != 0)
 			{
@@ -30,7 +39,7 @@ int main()
 		cout << "\n\n";
 		cout << "secondo polinomio\n\n";
 
-		for (int i = 3; i >= 0; i--)
+		for (int i = numeri; i >= 0; i--)
 		{
 			if (i != 0)
 			{
@@ -44,7 +53,7 @@ int main()
 		}
 		cout << "\n\nprimo  ";
 
-		for (int i = 3; i >= 0; i--)
+		for (int i = numeri; i >= 0; i--)
 		{
 			if (pol1[i] != 0)
 			{
@@ -61,7 +70,7 @@ int main()
 		}
 		cout << "\nsecondo  ";
 
-		for (int i = 3; i >= 0; i--)
+		for (int i = numeri; i >= 0; i--)
 		{
 			if (pol2[i] != 0)
 			{
@@ -76,15 +85,23 @@ int main()
 				}
 			}
 		}
-
-		int scelta;
+		primo = false;
+	    cout << "Premi un tasto per continuare . . . ";
+     	carattere = getch();
+		system ("cls");
+	}
+        
+		char opz;
 		int polfine[7]{0};
-
-		cout << "\nscegli una delle seguenti opzioni somma(0) , differenza(1) , prodotto(2) : ";
-		cin >> scelta;
-
-		if (scelta == 0)
-		{
+		cout << "0 ( inserimento polinomi ) \n1 ( somma ) \n2 ( differenza ) \n3 ( prodotto ) \n4 ( ricerca degli zeri solo per primo e secondo grado ) \n5 ( ricerca punti di intersezione ) \n6 ( grafico ) \n\n9 ( esci )";
+		opz = getch();
+		 system ("cls");
+		
+		if ( opz == '0' ) {
+			primo = true;
+			continue;
+		}
+		else if ( opz == '1' ) {
 			for (int i = 3; i >= 0; i--)
 			{
 				polfine[i] = pol1[i] + pol2[i];
@@ -106,10 +123,11 @@ int main()
 					}
 				}
 			}
+			cout << "Premi un tasto per continuare . . . ";
+     	carattere = getch();
+		system ("cls");
 		}
-
-		if (scelta == 1)
-		{
+		else if ( opz == '2' ) {
 			for (int i = 3; i >= 0; i--)
 			{
 				polfine[i] = pol1[i] - pol2[i];
@@ -131,10 +149,12 @@ int main()
 					}
 				}
 			}
-		}
+			cout << "Premi un tasto per continuare . . . ";
+     	carattere = getch();
+		system ("cls");
 
-		if (scelta == 2)
-		{
+		}
+		if ( opz == '3' ) {
 			for (int i = 3; i >= 0; i--)
 			{
 				for (int j = 3; j >= 0; j--)
@@ -159,46 +179,9 @@ int main()
 					}
 				}
 			}
-		}
 
-		bool secondo = true;
-
-		for ( int i = 6 ; i >= 3 ; i-- ) {
-			if ( polfine[i] != 0 ) {
-				secondo = false;
-			}
-		}
-
-		if ( secondo ) {
-			int x1;
-			int x2;
-			if ( polfine[2] == 0 ) {
-				x1 = (polfine[0] * -1) / polfine[1];
-				cout << "X = " << x1;
-			}
-			else if (polfine[2] != 0 ) {
-				x1 = ((polfine[1] * -1) + sqrt( pow(polfine[1] , 2) - (4*polfine[0]*polfine[2] ))) / (polfine[2] *2);
-				x2 = ((polfine[1] * -1) - sqrt( pow(polfine[1] , 2) - (4*polfine[0]*polfine[2] ))) / (polfine[2] *2);
-				cout << "X1 = " << x1 << "\n\n";
-				cout << "X2= " << x2;
-			}
-		}
-
-		char rip;
-
-		cout << "\n\nVuoi rifare il gioco ( s ) si ( n ) no : ";
-		cin >> rip;
-
-		if (rip == 'n')
-		{
-			break;
-		}
-		if (rip == 's')
-		{
-			system("cls");
 		}
 	}
 	return 0;
 }
-
 
