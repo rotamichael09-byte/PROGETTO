@@ -6,7 +6,13 @@ using namespace std;
 int main()
 {
 	char carattere;
-	cout << "\x1b[33mPROGETTO POLINOMI\n\n\x1b[0mROTA MICHAEL\nCOLOMBO FRANCESCO\nSPINELLI FILIPPO\n\n\nPremi un tasto per continuare . . . ";
+	cout << "\x1b[33m";
+	cout << " ____  ____   ___   ____ _____ _____ _____ ___    ____   ___  _     ___ _   _  ___  __  __ ___ " << endl;
+	cout << "|  _ \\|  _ \\ / _ \\ / ___| ____|_   _|_   _/ _ \\  |  _ \\ / _ \\| |   |_ _| \\ | |/ _ \\|  \\/  |_ _| " << endl;
+	cout << "| |_) | |_) | | | | |  _|  _|   | |   | || | | | | |_) | | | | |    | ||  \\| | | | | |\\/| || |  " << endl;
+	cout << "|  __/|  _ <| |_| | |_| | |___  | |   | || |_| | |  __/| |_| | |___ | || |\\  | |_| | |  | || |  " << endl;
+	cout << "|_|   |_| \\_\\\\___/ \\____|_____| |_|   |_| \\___/  |_|    \\___/|_____|___|_| \\_|\\___/|_|  |_|___| " << endl;
+	cout << "\n\n\x1b[0mROTA MICHAEL\nCOLOMBO FRANCESCO\nSPINELLI FILIPPO\n\n\n\033[4mPremi un tasto per continuare . . . \033[0m";
 	carattere = getch();
 	bool primo = true;
 
@@ -197,6 +203,10 @@ int main()
 				{
 					cout << " X : " << pol1[0] * -1 << "/" << pol1[1];
 				}
+				else if (pol1[2] == 0 && pol1[1] == 0)
+				{
+					cout << "non ci sono x";
+				}
 				else if (pol1[2] != 0)
 				{
 					if (pol1[0] != 0 && pol1[1] != 0 && pol1[2] != 0)
@@ -237,6 +247,10 @@ int main()
 			if (pol2[3] != 0)
 			{
 				cout << "Polinomio di terzo grado";
+			}
+			else if (pol2[2] == 0 && pol2[1] == 0)
+			{
+				cout << "non ci sono x";
 			}
 			else if (pol2[3] == 0)
 			{
@@ -279,6 +293,104 @@ int main()
 					}
 				}
 			}
+			cout << "\n\nPremi un tasto per continuare . . . ";
+			carattere = getch();
+			system("cls");
+		}
+		else if (opz == '5')
+		{
+
+			int x1 = 0;
+			int x2 = 0;
+			int y1;
+			int y2;
+
+			for (int i = 3; i >= 0; i--)
+			{
+				polfine[i] = pol1[i] - pol2[i];
+			}
+
+			if (polfine[3] != 0)
+			{
+				cout << "Polinomio di terzo grado";
+			}
+
+			else if (polfine[3] == 0)
+			{
+				if (polfine[2] == 0)
+				{
+					if (polfine[1] == 0)
+					{
+						cout << "Non ci sono punti di intersezione";
+					}
+
+					else
+					{
+						x1 = (polfine[0] * -1) / polfine[1];
+						y1 = (pol1[1] * x1) + pol1[0];
+						cout << "X : " << x1 << " Y : " << y1;
+					}
+				}
+
+				else if (polfine[2] != 0)
+				{
+					if (polfine[0] != 0 && polfine[1] != 0 && polfine[2] != 0)
+					{
+						int delta;
+						delta = pow(polfine[1], 2) - (4 * polfine[0] * polfine[2]);
+
+						if (delta < 0)
+						{
+							cout << "Non ci sono punti di intersezione";
+						}
+
+						else
+						{
+							x1 = ((polfine[1] * -1) + sqrt(delta)) / (polfine[2] * 2);
+							x2 = ((polfine[1] * -1) - sqrt(delta)) / (polfine[2] * 2);
+
+							y1 = (pol1[2] * pow(x1, 2)) + (pol1[1] * x1) + pol1[0];
+							y2 = (pol1[2] * pow(x2, 2)) + (pol1[1] * x2) + pol1[0];
+
+							cout << "X : " << x1 << " Y : " << y1;
+							cout << "\nX2 : " << x2 << " Y2 : " << y2;
+						}
+					}
+
+					else if (polfine[0] == 0 && polfine[1] != 0 && polfine[2] != 0)
+					{
+						x1 = 0;
+						x2 = (polfine[1] * -1) / polfine[2];
+
+						y1 = (pol1[2] * pow(x1, 2)) + (pol1[1] * x1) + pol1[0];
+						y2 = (pol1[2] * pow(x2, 2)) + (pol1[1] * x2) + pol1[0];
+
+						cout << "X : " << x1 << " Y : " << y1;
+						cout << "\nX2 : " << x2 << " Y2 : " << y2;
+					}
+
+					else if (polfine[0] != 0 && polfine[1] == 0 && polfine[2] != 0)
+					{
+						if (polfine[0] * -1 < 0)
+						{
+							cout << "Non ci sono punti di intersezione";
+						}
+
+						else
+						{
+							x1 = sqrt((polfine[0] * -1) / polfine[2]);
+							x2 = -sqrt((polfine[0] * -1) / polfine[2]);
+
+							y1 = (pol1[2] * pow(x1, 2)) + (pol1[1] * x1) + pol1[0];
+							y2 = (pol1[2] * pow(x2, 2)) + (pol1[1] * x2) + pol1[0];
+
+							cout << "X : " << x1 << " Y : " << y1;
+							cout << "\nX2 : " << x2 << " Y2 : " << y2;
+						}
+					}
+				}
+			}
+
 			cout << "\n\nPremi un tasto per continuare . . . ";
 			carattere = getch();
 			system("cls");
