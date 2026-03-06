@@ -12,7 +12,7 @@ int main()
 	cout << "| |_) | |_) | | | | |  _|  _|   | |   | || | | | | |_) | | | | |    | ||  \\| | | | | |\\/| || |  " << endl;
 	cout << "|  __/|  _ <| |_| | |_| | |___  | |   | || |_| | |  __/| |_| | |___ | || |\\  | |_| | |  | || |  " << endl;
 	cout << "|_|   |_| \\_\\\\___/ \\____|_____| |_|   |_| \\___/  |_|    \\___/|_____|___|_| \\_|\\___/|_|  |_|___| " << endl;
-	cout << "\n\n\x1b[0mROTA MICHAEL\nCOLOMBO FRANCESCO\nSPINELLI FILIPPO\n\n\n\033[4mPremi un tasto per continuare . . . \033[0m";
+	cout << "\n\n\x1b[0m-ROTA MICHAEL\n-COLOMBO FRANCESCO\n-SPINELLI FILIPPO\n\n\n\033[4m\033[1m\033[3mPremi un tasto per continuare\033[0m . . . ";
 	carattere = getch();
 	bool primo = true;
 
@@ -20,45 +20,48 @@ int main()
 	int pol1[4]{0};
 	int pol2[4]{0};
 	int numeri;
+	int numeri2;
 
 	while (true)
 	{
 		if (primo == true)
 		{
-			cout << "Quale grado vuoi inserire : ";
+			cout << "\x1b[33m0) INSERIMENTO POLINOMI\x1b[0m\n\n";
+			cout << "\033[1m\033[3mQuale grado vuoi inserire nel primo polinomio : \033[0m";
 			cin >> numeri;
-
-			cout << "Primo polinomio\n\n";
+			cout << "\n\n\033[1m\033[3m";
 
 			for (int i = numeri; i >= 0; i--)
 			{
 				if (i != 0)
 				{
-					cout << "Valore alla " << i << "^ : ";
+					cout << "Valore alla " << i << "^ :\t";
 				}
 				else
 				{
-					cout << "Termine noto : ";
+					cout << "Termine noto :\t\t";
 				}
 				cin >> pol1[i];
 			}
 
+			cout << "\n\n\n\n";
+			cout << "\033[1m\033[3mQuale grado vuoi inserire nel secondo polinomio : \033[0m";
+			cin >> numeri2;
 			cout << "\n\n";
-			cout << "secondo polinomio\n\n";
 
-			for (int i = numeri; i >= 0; i--)
+			for (int i = numeri2; i >= 0; i--)
 			{
 				if (i != 0)
 				{
-					cout << "Valore alla " << i << "^ : ";
+					cout << "Valore alla " << i << "^ : \t";
 				}
 				else
 				{
-					cout << "Termine noto : ";
+					cout << "Termine noto : \t\t";
 				}
 				cin >> pol2[i];
 			}
-			cout << "\n\nprimo  ";
+			cout << "\n\n\nPRIMO : ";
 
 			for (int i = numeri; i >= 0; i--)
 			{
@@ -67,33 +70,61 @@ int main()
 
 					if (i != 0)
 					{
-						cout << pol1[i] << "x^" << i << "  ";
+						if (pol1[i] > 0)
+						{
+							cout << " +" << pol1[i] << "x^" << i;
+						}
+						else
+						{
+							cout << " " << pol1[i] << "x^" << i;
+						}
 					}
 					else
 					{
-						cout << pol1[i] << "\n\n";
+						if (pol1[i] > 0)
+						{
+							cout << " +" << pol1[i] << "\n";
+						}
+						else
+						{
+							cout << " " << pol1[i] << "\n";
+						}
 					}
 				}
 			}
-			cout << "\nsecondo  ";
+			cout << "\nSECONDO : ";
 
-			for (int i = numeri; i >= 0; i--)
+			for (int i = numeri2; i >= 0; i--)
 			{
 				if (pol2[i] != 0)
 				{
 
 					if (i != 0)
 					{
-						cout << pol2[i] << "x^" << i << "  ";
+						if (pol2[i] > 0)
+						{
+							cout << " +" << pol2[i] << "x^" << i;
+						}
+						else
+						{
+							cout << " " << pol2[i] << "x^" << i;
+						}
 					}
 					else
 					{
-						cout << pol2[i] << "\n\n";
+						if (pol2[i] > 0)
+						{
+							cout << " +" << pol2[i] << "\n\n";
+						}
+						else
+						{
+							cout << " " << pol2[i] << "\n\n";
+						}
 					}
 				}
 			}
 			primo = false;
-			cout << "Premi un tasto per continuare . . . ";
+			cout << "\n\n\033[4m\033[1m\033[3mPremi un tasto per continuare\033[0m . . . ";
 			carattere = getch();
 			system("cls");
 		}
