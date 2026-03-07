@@ -12,7 +12,29 @@ int main()
 	cout << "| |_) | |_) | | | | |  _|  _|   | |   | || | | | | |_) | | | | |    | ||  \\| | | | | |\\/| || |  " << endl;
 	cout << "|  __/|  _ <| |_| | |_| | |___  | |   | || |_| | |  __/| |_| | |___ | || |\\  | |_| | |  | || |  " << endl;
 	cout << "|_|   |_| \\_\\\\___/ \\____|_____| |_|   |_| \\___/  |_|    \\___/|_____|___|_| \\_|\\___/|_|  |_|___| " << endl;
-	cout << "\n\n\x1b[0m-ROTA MICHAEL\n-COLOMBO FRANCESCO\n-SPINELLI FILIPPO\n\n\n\033[4m\033[1m\033[3mPremi un tasto per continuare\033[0m . . . ";
+	cout << "\n\033[0m----------------------------------------------------------------------------------------------------------------------";
+	cout << "\n\n";
+
+	cout << "_____________________________________\n";
+	cout << "|\033[0m                                   |          \n";
+	cout << "|  \033[1;33mBENVENUTO NEL NOSTRO PROGRAMMA   \033[0m|\n";
+	cout << "|___________________________________|\n\n";
+
+	cout << "\033[3mCon questo software puoi:\033[0m\n\n";
+
+	cout << "  \033[1;32m[1]\033[0m Sommare due polinomi\n";
+	cout << "  \033[1;32m[2]\033[0m Calcolare la differenza\n";
+	cout << "  \033[1;32m[3]\033[0m Fare il prodotto\n";
+	cout << "  \033[1;32m[4]\033[0m Trovare gli zeri\n";
+	cout << "  \033[1;32m[5]\033[0m Calcolare l'intersezione tra polinomi\n";
+	cout << "  \033[1;32m[6]\033[0m Visualizzare il grafico\n\n";
+
+	cout << "\033[1;35mMembri del gruppo:\033[0m\n\n";
+
+	cout << "  \033[37mROTA MICHAEL\033[0m\n";
+	cout << "  \033[37mCOLOMBO FRANCESCO\033[0m\n";
+	cout << "  \033[37mSPINELLI FILIPPO\033[0m\n\n";
+	cout << "\033[1;3;4m\nPremi un tasto per continuare...\033[0m";
 	carattere = getch();
 	bool primo = true;
 
@@ -26,8 +48,14 @@ int main()
 	{
 		if (primo == true)
 		{
-			cout << "\x1b[33m0) INSERIMENTO POLINOMI\x1b[0m\n\n";
-			cout << "\033[1m\033[3mQuale grado vuoi inserire nel primo polinomio : \033[0m";
+			cout << "\033[1;33m";
+			cout << " ___ _   _ ____  _____ ____  ___ __  __ _____ _   _ _____ ___  " << endl;
+			cout << "|_ _| \\ | / ___|| ____|  _ \\|_ _|  \\/  | ____| \\ | |_   _/ _ \\ " << endl;
+			cout << " | ||  \\| \\___ \\|  _| | |_) || || |\\/| |  _| |  \\| | | || | | |" << endl;
+			cout << " | || |\\  |___) | |___|  _ < | || |  | | |___| |\\  | | || |_| |" << endl;
+			cout << "|___|_| \\_|____/|_____|_| \\_\\___|_|  |_|_____|_| \\_| |_| \\___/ " << endl;
+			cout << "\033[0m" << endl;
+			cout << "\n\033[1m\033[3mQuale grado vuoi inserire nel primo polinomio : \033[0m";
 			cin >> numeri;
 			cout << "\n\n\033[1m\033[3m";
 
@@ -149,6 +177,13 @@ int main()
 		}
 		else if (opz == '1')
 		{
+			cout << "\033[1;36m";
+			cout << " ____   ___  __  __ __  __    _ " << endl;
+			cout << "/ ___| / _ \\|  \\/  |  \\/  |  / \\ " << endl;
+			cout << "\\___ \\| | | | |\\/| | |\\/| | / _ \\ " << endl;
+			cout << " ___) | |_| | |  | | |  | |/ ___ \\ " << endl;
+			cout << "|____/ \\___/|_|  |_|_|  |_/_/   \\_\\" << endl;
+			cout << "\033[0m" << endl;
 			for (int i = 3; i >= 0; i--)
 			{
 				polfine[i] = pol1[i] + pol2[i];
