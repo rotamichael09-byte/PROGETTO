@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
 	char carattere;
-	cout << "\x1b[33m";
+	cout << "\033[1;33m";
 	cout << " ____  ____   ___   ____ _____ _____ _____ ___    ____   ___  _     ___ _   _  ___  __  __ ___ " << endl;
 	cout << "|  _ \\|  _ \\ / _ \\ / ___| ____|_   _|_   _/ _ \\  |  _ \\ / _ \\| |   |_ _| \\ | |/ _ \\|  \\/  |_ _| " << endl;
 	cout << "| |_) | |_) | | | | |  _|  _|   | |   | || | | | | |_) | | | | |    | ||  \\| | | | | |\\/| || |  " << endl;
@@ -157,7 +157,7 @@ int main()
 			system("cls");
 		}
 
-		cout << "\x1b[33m";
+		cout << "\033[1;33m";
 		cout << " __  __ _____ _   _ _   _ " << endl;
 		cout << "|  \\/  | ____| \\ | | | | |" << endl;
 		cout << "| |\\/| |  _| |  \\| | | | |" << endl;
@@ -177,7 +177,7 @@ int main()
 		}
 		else if (opz == '1')
 		{
-			cout << "\033[1;36m";
+			cout << "\033[1;33m";
 			cout << " ____   ___  __  __ __  __    _ " << endl;
 			cout << "/ ___| / _ \\|  \\/  |  \\/  |  / \\ " << endl;
 			cout << "\\___ \\| | | | |\\/| | |\\/| | / _ \\ " << endl;
@@ -189,7 +189,70 @@ int main()
 				polfine[i] = pol1[i] + pol2[i];
 			}
 
-			cout << "\n\n\nsomma : ";
+			cout << "( ";
+			for (int i = numeri; i >= 0; i--)
+			{
+				if (pol1[i] != 0)
+				{
+
+					if (i != 0)
+					{
+						if (pol1[i] > 0)
+						{
+							cout << " +" << pol1[i] << "x^" << i;
+						}
+						else
+						{
+							cout << " " << pol1[i] << "x^" << i;
+						}
+					}
+					else
+					{
+						if (pol1[i] > 0)
+						{
+							cout << " +" << pol1[i];
+						}
+						else
+						{
+							cout << " " << pol1[i];
+						}
+					}
+				}
+			}
+			cout << " ) + ( ";
+
+			for (int i = numeri2; i >= 0; i--)
+			{
+				if (pol2[i] != 0)
+				{
+
+					if (i != 0)
+					{
+						if (pol2[i] > 0)
+						{
+							cout << " +" << pol2[i] << "x^" << i;
+						}
+						else
+						{
+							cout << " " << pol2[i] << "x^" << i;
+						}
+					}
+					else
+					{
+						if (pol2[i] > 0)
+						{
+							cout << " +" << pol2[i];
+						}
+						else
+						{
+							cout << " " << pol2[i];
+						}
+					}
+				}
+			}
+
+			cout << " ) = ";
+
 			for (int i = 3; i >= 0; i--)
 			{
 				if (polfine[i] != 0)
@@ -197,26 +260,110 @@ int main()
 
 					if (i != 0)
 					{
-						cout << polfine[i] << "x^" << i << "  ";
+						if (polfine[i] > 0)
+						{
+							cout << " +" << polfine[i] << "x^" << i;
+						}
+						else
+						{
+							cout << " " << polfine[i] << "x^" << i;
+						}
 					}
 					else
 					{
-						cout << polfine[i] << "\n\n";
+						if (pol2[i] > 0)
+						{
+							cout << " +" << polfine[i];
+						}
+						else
+						{
+							cout << " " << polfine[i];
+						}
 					}
 				}
 			}
-			cout << "Premi un tasto per continuare . . . ";
+			cout << "\n\n\033[4m\033[1m\033[3mPremi un tasto per continuare\033[0m . . . ";
 			carattere = getch();
 			system("cls");
 		}
 		else if (opz == '2')
 		{
+			cout << "\033[1;33m";
+			cout << " ___  ___ _____ _____ _____ ____  _____ _   _ _____  _ " << endl;
+			cout << "|  _ \\|_ _|  ___|  ___| ____|  _ \\| ____| \\ | |__  / / \\ " << endl;
+			cout << "| | | || || |_  | |_  |  _| | |_) |  _| |  \\| |  / / / _ \\ " << endl;
+			cout << "| |_| || ||  _| |  _| | |___|  _ <| |___| |\\  | / /_/ ___ \\ " << endl;
+			cout << "|____/|___|_|   |_|   |_____|_| \\_\\_____|_| \\_|/____/_/   \\_\\" << endl;
+			cout << "\033[0m" << endl;
 			for (int i = 3; i >= 0; i--)
 			{
 				polfine[i] = pol1[i] - pol2[i];
 			}
 
-			cout << "\n\n\ndifferenza : ";
+			cout << "( ";
+			for (int i = numeri; i >= 0; i--)
+			{
+				if (pol1[i] != 0)
+				{
+
+					if (i != 0)
+					{
+						if (pol1[i] > 0)
+						{
+							cout << " +" << pol1[i] << "x^" << i;
+						}
+						else
+						{
+							cout << " " << pol1[i] << "x^" << i;
+						}
+					}
+					else
+					{
+						if (pol1[i] > 0)
+						{
+							cout << " +" << pol1[i];
+						}
+						else
+						{
+							cout << " " << pol1[i];
+						}
+					}
+				}
+			}
+			cout << " ) - ( ";
+
+			for (int i = numeri2; i >= 0; i--)
+			{
+				if (pol2[i] != 0)
+				{
+
+					if (i != 0)
+					{
+						if (pol2[i] > 0)
+						{
+							cout << " +" << pol2[i] << "x^" << i;
+						}
+						else
+						{
+							cout << " " << pol2[i] << "x^" << i;
+						}
+					}
+					else
+					{
+						if (pol2[i] > 0)
+						{
+							cout << " +" << pol2[i];
+						}
+						else
+						{
+							cout << " " << pol2[i];
+						}
+					}
+				}
+			}
+
+			cout << " ) = ";
+
 			for (int i = 3; i >= 0; i--)
 			{
 				if (polfine[i] != 0)
@@ -224,20 +371,41 @@ int main()
 
 					if (i != 0)
 					{
-						cout << polfine[i] << "x^" << i << "  ";
+						if (polfine[i] > 0)
+						{
+							cout << " +" << polfine[i] << "x^" << i;
+						}
+						else
+						{
+							cout << " " << polfine[i] << "x^" << i;
+						}
 					}
 					else
 					{
-						cout << polfine[i] << "\n\n";
+						if (pol2[i] > 0)
+						{
+							cout << " +" << polfine[i];
+						}
+						else
+						{
+							cout << " " << polfine[i];
+						}
 					}
 				}
 			}
-			cout << "Premi un tasto per continuare . . . ";
+			cout << "\n\n\033[4m\033[1m\033[3mPremi un tasto per continuare\033[0m . . . ";
 			carattere = getch();
 			system("cls");
 		}
 		if (opz == '3')
 		{
+			cout << "\033[1;33m";
+			cout << " ____  ____   ___  ____   ___ _____ _____ ___  " << endl;
+			cout << "|  _ \\|  _ \\ / _ \\|  _ \\ / _ \\_   _|_   _/ _ \\ " << endl;
+			cout << "| |_) | |_) | | | | | | | | | || |   | || | | |" << endl;
+			cout << "|  __/|  _ <| |_| | |_| | |_| || |   | || |_| |" << endl;
+			cout << "|_|   |_| \\_\\\\___/|____/ \\___/ |_|   |_| \\___/ " << endl;
+			cout << "\033[0m" << endl;
 			for (int i = 3; i >= 0; i--)
 			{
 				for (int j = 3; j >= 0; j--)
@@ -245,8 +413,70 @@ int main()
 					polfine[i + j] += pol1[i] * pol2[j];
 				}
 			}
+			cout << "( ";
+			for (int i = numeri; i >= 0; i--)
+			{
+				if (pol1[i] != 0)
+				{
 
-			cout << "\n\n\nprodotto : ";
+					if (i != 0)
+					{
+						if (pol1[i] > 0)
+						{
+							cout << " +" << pol1[i] << "x^" << i;
+						}
+						else
+						{
+							cout << " " << pol1[i] << "x^" << i;
+						}
+					}
+					else
+					{
+						if (pol1[i] > 0)
+						{
+							cout << " +" << pol1[i];
+						}
+						else
+						{
+							cout << " " << pol1[i];
+						}
+					}
+				}
+			}
+			cout << " ) * ( ";
+
+			for (int i = numeri2; i >= 0; i--)
+			{
+				if (pol2[i] != 0)
+				{
+
+					if (i != 0)
+					{
+						if (pol2[i] > 0)
+						{
+							cout << " +" << pol2[i] << "x^" << i;
+						}
+						else
+						{
+							cout << " " << pol2[i] << "x^" << i;
+						}
+					}
+					else
+					{
+						if (pol2[i] > 0)
+						{
+							cout << " +" << pol2[i];
+						}
+						else
+						{
+							cout << " " << pol2[i];
+						}
+					}
+				}
+			}
+
+			cout << " ) = ";
+
 			for (int i = 6; i >= 0; i--)
 			{
 				if (polfine[i] != 0)
@@ -254,17 +484,41 @@ int main()
 
 					if (i != 0)
 					{
-						cout << polfine[i] << "x^" << i << "  ";
+						if (polfine[i] > 0)
+						{
+							cout << " +" << polfine[i] << "x^" << i;
+						}
+						else
+						{
+							cout << " " << polfine[i] << "x^" << i;
+						}
 					}
 					else
 					{
-						cout << polfine[i] << "\n\n";
+						if (pol2[i] > 0)
+						{
+							cout << " +" << polfine[i];
+						}
+						else
+						{
+							cout << " " << polfine[i];
+						}
 					}
 				}
 			}
+			cout << "\n\n\033[4m\033[1m\033[3mPremi un tasto per continuare\033[0m . . . ";
+			carattere = getch();
+			system("cls");
 		}
 		else if (opz == '4')
 		{
+			cout << "\033[1;33m";
+			cout << " ____  ___ ____   ___  _    _   _ _____ ___ ___  _   _ _____ " << endl;
+			cout << "|  _ \\|_ _/ ___| / _ \\| |  | | | |__  /|_ _/ _ \\| \\ | | ____|" << endl;
+			cout << "| |_) || |\\___ \\| | | | |  | | | | / /  | | | | |  \\| |  _|  " << endl;
+			cout << "|  _ < | | ___) | |_| | |__| |_| |/ /_  | | |_| | |\\  | |___ " << endl;
+			cout << "|_| \\_\\___|____/ \\___/|_____\\___//____|___\\___/|_| \\_|_____|" << endl;
+			cout << "\033[0m" << endl;
 
 			if (pol1[3] != 0)
 			{
@@ -372,6 +626,13 @@ int main()
 		}
 		else if (opz == '5')
 		{
+			cout << "\033[1;33m";
+			cout << " ___ _   _ _____ _____ ____  ____  _____ _____ ___ ___  _   _ ___ " << endl;
+			cout << "|_ _| \\ | |_   _| ____|  _ \\/ ___|| ____|__  /|_ _/ _ \\| \\ | |_ _|" << endl;
+			cout << " | ||  \\| | | | |  _| | |_) \\___ \\|  _|   / /  | | | | |  \\| || | " << endl;
+			cout << " | || |\\  | | | | |___|  _ < ___) | |___ / /_  | | |_| | |\\  || | " << endl;
+			cout << "|___|_| \\_| |_| |_____|_| \\_\\____/|_____/____|___\\___/|_| \\_|___|" << endl;
+			cout << "\033[0m" << endl;
 
 			int x1 = 0;
 			int x2 = 0;
@@ -485,7 +746,7 @@ int main()
 			}
 		}
 	}
-	cout << "\x1b[33m";
+	cout << "\033[1;33m";
 	cout << " _____ ___ _   _ _____ " << endl;
 	cout << "|  ___|_ _| \\ | | ____|" << endl;
 	cout << "| |_   | ||  \\| |  _|  " << endl;
