@@ -129,9 +129,16 @@ int main()
 			system("cls");
 		}
 
+		cout << "\x1b[33m";
+		cout << " __  __ _____ _   _ _   _ " << endl;
+		cout << "|  \\/  | ____| \\ | | | | |" << endl;
+		cout << "| |\\/| |  _| |  \\| | | | |" << endl;
+		cout << "| |  | | |___| |\\  | |_| |" << endl;
+		cout << "|_|  |_|_____|_| \\_|\\___/ " << endl;
+		cout << "\x1b[0m";
 		char opz;
 		int polfine[7]{0};
-		cout << "0 ( inserimento polinomi ) \n1 ( somma ) \n2 ( differenza ) \n3 ( prodotto ) \n4 ( ricerca degli zeri solo per primo e secondo grado ) \n5 ( ricerca punti di intersezione ) \n6 ( grafico ) \n\n9 ( esci )";
+		cout << "\n\n\033[1m\033[3m0 ( inserimento polinomi ) \n1 ( somma ) \n2 ( differenza ) \n3 ( prodotto ) \n4 ( ricerca degli zeri solo per primo e secondo grado ) \n5 ( ricerca punti di intersezione ) \n6 ( grafico ) \n\n9 ( esci )\033[0m";
 		opz = getch();
 		system("cls");
 
@@ -426,6 +433,29 @@ int main()
 			carattere = getch();
 			system("cls");
 		}
+		else if (opz == '9')
+		{
+			char sicuro;
+			cout << "Vuoi davvero uscire (s) / (n) : ";
+			sicuro = getch();
+			if (sicuro == 's')
+			{
+				system("cls");
+				break;
+			}
+			else
+			{
+				system("cls");
+				continue;
+			}
+		}
 	}
+	cout << "\x1b[33m";
+	cout << " _____ ___ _   _ _____ " << endl;
+	cout << "|  ___|_ _| \\ | | ____|" << endl;
+	cout << "| |_   | ||  \\| |  _|  " << endl;
+	cout << "|  _|  | || |\\  | |___ " << endl;
+	cout << "|__|  |___|_| \\_|_____|" << endl;
+	cout << "\x1b[0m";
 	return 0;
 }
