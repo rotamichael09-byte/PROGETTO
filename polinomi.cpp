@@ -12,13 +12,13 @@ int main()
 	cout << "| |_) | |_) | | | | |  _|  _|   | |   | || | | | | |_) | | | | |    | ||  \\| | | | | |\\/| || |  " << endl;
 	cout << "|  __/|  _ <| |_| | |_| | |___  | |   | || |_| | |  __/| |_| | |___ | || |\\  | |_| | |  | || |  " << endl;
 	cout << "|_|   |_| \\_\\\\___/ \\____|_____| |_|   |_| \\___/  |_|    \\___/|_____|___|_| \\_|\\___/|_|  |_|___| " << endl;
-	cout << "\n\033[0m----------------------------------------------------------------------------------------------------------------------";
+	cout << "\n\033[0m========================================================================================================================";
 	cout << "\n\n";
 
-	cout << "_____________________________________\n";
+	cout << "\n";
 	cout << "|\033[0m                                   |          \n";
 	cout << "|  \033[1;33mBENVENUTO NEL NOSTRO PROGRAMMA   \033[0m|\n";
-	cout << "|___________________________________|\n\n";
+	cout << "|                                   |\n\n";
 
 	cout << "\033[3mCon questo software puoi:\033[0m\n\n";
 
@@ -89,7 +89,7 @@ int main()
 				}
 				cin >> pol2[i];
 			}
-			cout << "\n\n\nPRIMO : ";
+			cout << "\n\n\nP(x) : ";
 
 			for (int i = numeri; i >= 0; i--)
 			{
@@ -120,7 +120,7 @@ int main()
 					}
 				}
 			}
-			cout << "\nSECONDO : ";
+			cout << "\nR(x) : ";
 
 			for (int i = numeri2; i >= 0; i--)
 			{
@@ -166,7 +166,16 @@ int main()
 		cout << "\x1b[0m";
 		char opz;
 		int polfine[7]{0};
-		cout << "\n\n\033[1m\033[3m0 ( inserimento polinomi ) \n1 ( somma ) \n2 ( differenza ) \n3 ( prodotto ) \n4 ( ricerca degli zeri solo per primo e secondo grado ) \n5 ( ricerca punti di intersezione ) \n6 ( grafico ) \n\n9 ( esci )\033[0m";
+		cout << "\n\n\033[1m\033[3mCosa vuoi fare oggi con i tuoi polinomi?\033[0m\n\n";
+		cout << "  \033[1;32m[1]\033[0m SOMMAA \t\t-> somma tra P(x) + R(x)\n";
+	    cout << "  \033[1;32m[2]\033[0m DIFFERENZA \t-> Differenza tra P(x) - R(x)\n";
+	    cout << "  \033[1;32m[3]\033[0m PRODOTTO \t\t-> Prodotto tra P(x) * R(x)\n";
+	    cout << "  \033[1;32m[4]\033[0m ZERI \t\t-> Trova i valori di x\n";
+	    cout << "  \033[1;32m[5]\033[0m INTERSEZIONI \t-> Trova i punti di intersezione tra P(x) e R(x)\n";
+	    cout << "  \033[1;32m[6]\033[0m GRAFICO \t\t-> Visualizza il grafico\n\n";
+		cout << "  \033[1;32m[9]\033[0m ESCI \t\t-> Chiude il programma\n\n\n";
+		cout << "\033[1m\033[3mInserisci operazione : ";
+
 		opz = getch();
 		system("cls");
 
@@ -183,13 +192,14 @@ int main()
 			cout << "\\___ \\| | | | |\\/| | |\\/| | / _ \\ " << endl;
 			cout << " ___) | |_| | |  | | |  | |/ ___ \\ " << endl;
 			cout << "|____/ \\___/|_|  |_|_|  |_/_/   \\_\\" << endl;
-			cout << "\033[0m" << endl;
+			cout << "\n\033[0m=====================================\n\n";
+			
 			for (int i = 3; i >= 0; i--)
 			{
 				polfine[i] = pol1[i] + pol2[i];
 			}
 
-			cout << "( ";
+			cout << "Polinomio \033[31mP(x)\033[32m\n";
 			for (int i = numeri; i >= 0; i--)
 			{
 				if (pol1[i] != 0)
@@ -219,7 +229,7 @@ int main()
 					}
 				}
 			}
-			cout << " ) + ( ";
+			cout << "\n\n\033[0mPolinomio \033[33mR(x)\033[32m\n";
 
 			for (int i = numeri2; i >= 0; i--)
 			{
@@ -251,7 +261,7 @@ int main()
 				}
 			}
 
-			cout << " ) = ";
+			cout << "\n\n\033[0m------------------------------------\nPolinomio \033[31mP(x)\033[0m + \033[33mR(x)\033[32m\n";
 
 			for (int i = 3; i >= 0; i--)
 			{
@@ -282,6 +292,7 @@ int main()
 					}
 				}
 			}
+			cout << "\n\033[0m------------------------------------\n\n";
 			cout << "\n\n\033[4m\033[1m\033[3mPremi un tasto per continuare\033[0m . . . ";
 			carattere = getch();
 			system("cls");
@@ -294,13 +305,13 @@ int main()
 			cout << "| | | || || |_  | |_  |  _| | |_) |  _| |  \\| |  / / / _ \\ " << endl;
 			cout << "| |_| || ||  _| |  _| | |___|  _ <| |___| |\\  | / /_/ ___ \\ " << endl;
 			cout << "|____/|___|_|   |_|   |_____|_| \\_\\_____|_| \\_|/____/_/   \\_\\" << endl;
-			cout << "\033[0m" << endl;
+			cout << "\n\033[0m=================================================================\n\n";
 			for (int i = 3; i >= 0; i--)
 			{
 				polfine[i] = pol1[i] - pol2[i];
 			}
 
-			cout << "( ";
+			cout << "Polinomio \033[31mP(x)\033[32m\n";
 			for (int i = numeri; i >= 0; i--)
 			{
 				if (pol1[i] != 0)
@@ -330,7 +341,7 @@ int main()
 					}
 				}
 			}
-			cout << " ) - ( ";
+			cout << "\n\n\033[0mPolinomio \033[33mR(x)\033[32m\n";
 
 			for (int i = numeri2; i >= 0; i--)
 			{
@@ -362,7 +373,7 @@ int main()
 				}
 			}
 
-			cout << " ) = ";
+			cout << "\n\n\033[0m------------------------------------\nPolinomio \033[31mP(x)\033[0m - \033[33mR(x)\033[32m\n";
 
 			for (int i = 3; i >= 0; i--)
 			{
@@ -382,7 +393,7 @@ int main()
 					}
 					else
 					{
-						if (pol2[i] > 0)
+						if (polfine[i] > 0)
 						{
 							cout << " +" << polfine[i];
 						}
@@ -393,6 +404,7 @@ int main()
 					}
 				}
 			}
+			cout << "\n\033[0m------------------------------------\n\n";
 			cout << "\n\n\033[4m\033[1m\033[3mPremi un tasto per continuare\033[0m . . . ";
 			carattere = getch();
 			system("cls");
@@ -405,7 +417,7 @@ int main()
 			cout << "| |_) | |_) | | | | | | | | | || |   | || | | |" << endl;
 			cout << "|  __/|  _ <| |_| | |_| | |_| || |   | || |_| |" << endl;
 			cout << "|_|   |_| \\_\\\\___/|____/ \\___/ |_|   |_| \\___/ " << endl;
-			cout << "\033[0m" << endl;
+			cout << "\n\033[0m=================================================\n\n";
 			for (int i = 3; i >= 0; i--)
 			{
 				for (int j = 3; j >= 0; j--)
@@ -413,7 +425,7 @@ int main()
 					polfine[i + j] += pol1[i] * pol2[j];
 				}
 			}
-			cout << "( ";
+			cout << "Polinomio \033[31mP(x)\033[32m\n";
 			for (int i = numeri; i >= 0; i--)
 			{
 				if (pol1[i] != 0)
@@ -443,7 +455,7 @@ int main()
 					}
 				}
 			}
-			cout << " ) * ( ";
+			cout << "\n\n\033[0mPolinomio \033[33mR(x)\033[32m\n";
 
 			for (int i = numeri2; i >= 0; i--)
 			{
@@ -475,7 +487,7 @@ int main()
 				}
 			}
 
-			cout << " ) = ";
+			cout << "\n\n\033[0m------------------------------------\nPolinomio \033[31mP(x)\033[0m * \033[33mR(x)\033[32m\n";
 
 			for (int i = 6; i >= 0; i--)
 			{
@@ -506,6 +518,7 @@ int main()
 					}
 				}
 			}
+			cout << "\n\033[0m------------------------------------\n\n";
 			cout << "\n\n\033[4m\033[1m\033[3mPremi un tasto per continuare\033[0m . . . ";
 			carattere = getch();
 			system("cls");
