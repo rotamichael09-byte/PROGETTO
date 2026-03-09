@@ -48,6 +48,11 @@ int main()
 	{
 		if (primo == true)
 		{
+			for ( int i = 3 ; i >= 0 ; i-- ) {
+				pol1[i] = 0;
+				pol2[i] = 0;
+			}
+
 			cout << "\033[1;33m";
 			cout << " ___ _   _ ____  _____ ____  ___ __  __ _____ _   _ _____ ___  " << endl;
 			cout << "|_ _| \\ | / ___|| ____|  _ \\|_ _|  \\/  | ____| \\ | |_   _/ _ \\ " << endl;
@@ -168,11 +173,11 @@ int main()
 		int polfine[7]{0};
 		cout << "\n\n\033[1m\033[3mCosa vuoi fare oggi con i tuoi polinomi?\033[0m\n\n";
 		cout << "  \033[1;32m[1]\033[0m SOMMAA \t\t-> somma tra P(x) + R(x)\n";
-	    cout << "  \033[1;32m[2]\033[0m DIFFERENZA \t-> Differenza tra P(x) - R(x)\n";
-	    cout << "  \033[1;32m[3]\033[0m PRODOTTO \t\t-> Prodotto tra P(x) * R(x)\n";
-	    cout << "  \033[1;32m[4]\033[0m ZERI \t\t-> Trova i valori di x\n";
-	    cout << "  \033[1;32m[5]\033[0m INTERSEZIONI \t-> Trova i punti di intersezione tra P(x) e R(x)\n";
-	    cout << "  \033[1;32m[6]\033[0m GRAFICO \t\t-> Visualizza il grafico\n\n";
+		cout << "  \033[1;32m[2]\033[0m DIFFERENZA \t-> Differenza tra P(x) - R(x)\n";
+		cout << "  \033[1;32m[3]\033[0m PRODOTTO \t\t-> Prodotto tra P(x) * R(x)\n";
+		cout << "  \033[1;32m[4]\033[0m ZERI \t\t-> Trova i valori di x\n";
+		cout << "  \033[1;32m[5]\033[0m INTERSEZIONI \t-> Trova i punti di intersezione tra P(x) e R(x)\n";
+		cout << "  \033[1;32m[6]\033[0m GRAFICO \t\t-> Visualizza il grafico\n\n";
 		cout << "  \033[1;32m[9]\033[0m ESCI \t\t-> Chiude il programma\n\n\n";
 		cout << "\033[1m\033[3mInserisci operazione : ";
 
@@ -193,7 +198,7 @@ int main()
 			cout << " ___) | |_| | |  | | |  | |/ ___ \\ " << endl;
 			cout << "|____/ \\___/|_|  |_|_|  |_/_/   \\_\\" << endl;
 			cout << "\n\033[0m=====================================\n\n";
-			
+
 			for (int i = 3; i >= 0; i--)
 			{
 				polfine[i] = pol1[i] + pol2[i];
@@ -300,15 +305,22 @@ int main()
 		else if (opz == '2')
 		{
 			cout << "\033[1;33m";
-			cout << " ___  ___ _____ _____ _____ ____  _____ _   _ _____  _ " << endl;
-			cout << "|  _ \\|_ _|  ___|  ___| ____|  _ \\| ____| \\ | |__  / / \\ " << endl;
-			cout << "| | | || || |_  | |_  |  _| | |_) |  _| |  \\| |  / / / _ \\ " << endl;
-			cout << "| |_| || ||  _| |  _| | |___|  _ <| |___| |\\  | / /_/ ___ \\ " << endl;
-			cout << "|____/|___|_|   |_|   |_____|_| \\_\\_____|_| \\_|/____/_/   \\_\\" << endl;
+			cout << " ___  ___ _____ _____ _____ ____  _____ _   _ _____  _ \n";
+			cout << "|  _ \\|_ _|  ___|  ___| ____|  _ \\| ____| \\ | |__  / / \\ \n";
+			cout << "| | | || || |_  | |_  |  _| | |_) |  _| |  \\| |  / / / _ \\ \n";
+			cout << "| |_| || ||  _| |  _| | |___|  _ <| |___| |\\  | / /_/ ___ \\ \n";
+			cout << "|____/|___|_|   |_|   |_____|_| \\_\\_____|_| \\_|/____/_/   \\_\\\n";
 			cout << "\n\033[0m=================================================================\n\n";
 			for (int i = 3; i >= 0; i--)
 			{
-				polfine[i] = pol1[i] - pol2[i];
+				if (pol1[i] != 0 && pol2[i] != 0 || pol1[i] != 0 && pol2[i] == 0)
+				{
+					polfine[i] = pol1[i] - pol2[i];
+				}
+				else if (pol1[i] == 0 && pol2[i] != 0)
+				{
+					polfine[i] = pol1[i] + pol2[i];
+				}
 			}
 
 			cout << "Polinomio \033[31mP(x)\033[32m\n";
@@ -531,7 +543,72 @@ int main()
 			cout << "| |_) || |\\___ \\| | | | |  | | | | / /  | | | | |  \\| |  _|  " << endl;
 			cout << "|  _ < | | ___) | |_| | |__| |_| |/ /_  | | |_| | |\\  | |___ " << endl;
 			cout << "|_| \\_\\___|____/ \\___/|_____\\___//____|___\\___/|_| \\_|_____|" << endl;
-			cout << "\033[0m" << endl;
+			cout << "\n\033[0m=============================================================\n\n";
+			cout << "Polinomi inseriti :\n\n\033[31mP(x) \033[0m= \033[32m";
+
+			for (int i = numeri; i >= 0; i--)
+			{
+				if (pol1[i] != 0)
+				{
+
+					if (i != 0)
+					{
+						if (pol1[i] > 0)
+						{
+							cout << " +" << pol1[i] << "x^" << i;
+						}
+						else
+						{
+							cout << " " << pol1[i] << "x^" << i;
+						}
+					}
+					else
+					{
+						if (pol1[i] > 0)
+						{
+							cout << " +" << pol1[i];
+						}
+						else
+						{
+							cout << " " << pol1[i];
+						}
+					}
+				}
+			}
+
+			cout << "\n\n\033[33mR(x) \033[0m= \033[32m";
+
+			for (int i = numeri2; i >= 0; i--)
+			{
+				if (pol2[i] != 0)
+				{
+
+					if (i != 0)
+					{
+						if (pol2[i] > 0)
+						{
+							cout << " +" << pol2[i] << "x^" << i;
+						}
+						else
+						{
+							cout << " " << pol2[i] << "x^" << i;
+						}
+					}
+					else
+					{
+						if (pol2[i] > 0)
+						{
+							cout << " +" << pol2[i];
+						}
+						else
+						{
+							cout << " " << pol2[i];
+						}
+					}
+				}
+			}
+
+			cout << "\n\n\033[0m------------------------------------\n\nZeri di \033[31mP(x)\033[0m:\n\033[32m";
 
 			if (pol1[3] != 0)
 			{
@@ -559,14 +636,14 @@ int main()
 						}
 						else if (delta >= 0)
 						{
-							cout << "x1 : " << ((pol1[1] * -1) + sqrt(delta)) / (pol1[2] * 2);
-							cout << "\nx2 : " << ((pol1[1] * -1) - sqrt(delta)) / (pol1[2] * 2);
+							cout << "X1 : " << ((pol1[1] * -1) + sqrt(delta)) / (pol1[2] * 2);
+							cout << "\nX2 : " << ((pol1[1] * -1) - sqrt(delta)) / (pol1[2] * 2);
 						}
 					}
 					else if (pol1[0] == 0 && pol1[1] != 0 && pol1[2] != 0)
 					{
-						cout << "x1 : 0";
-						cout << "\nx2 : " << pol1[1] * -1 << "/" << pol1[2];
+						cout << "X1 : 0";
+						cout << "\nX2 : " << pol1[1] * -1 << "/" << pol1[2];
 					}
 					else if (pol1[0] != 0 && pol1[1] == 0 && pol1[2] != 0)
 					{
@@ -576,21 +653,22 @@ int main()
 						}
 						else if (pol1[0] * -1 > 0)
 						{
-							cout << "x1 : -" << sqrt((pol1[0] * -1) / pol1[2]);
-							cout << "\nx1 : +" << sqrt((pol1[0] * -1) / pol1[2]);
+							cout << "X1 : -" << sqrt((pol1[0] * -1) / pol1[2]);
+							cout << "\nX2 : +" << sqrt((pol1[0] * -1) / pol1[2]);
 						}
 					}
 				}
 			}
 
-			cout << "\n\n";
+			cout << "\n\n\033[0mZeri di \033[33mR(x)\033[0m:\n\033[32m";
+
 			if (pol2[3] != 0)
 			{
 				cout << "Polinomio di terzo grado";
 			}
 			else if (pol2[2] == 0 && pol2[1] == 0)
 			{
-				cout << "non ci sono x";
+				cout << "non ci sono X";
 			}
 			else if (pol2[3] == 0)
 			{
@@ -610,14 +688,14 @@ int main()
 						}
 						else if (delta >= 0)
 						{
-							cout << "x1 : " << ((pol2[1] * -1) + sqrt(delta)) / (pol2[2] * 2);
-							cout << "\nx2 : " << ((pol2[1] * -1) - sqrt(delta)) / (pol2[2] * 2);
+							cout << "X1 : " << ((pol2[1] * -1) + sqrt(delta)) / (pol2[2] * 2);
+							cout << "\nX2 : " << ((pol2[1] * -1) - sqrt(delta)) / (pol2[2] * 2);
 						}
 					}
 					else if (pol2[0] == 0 && pol2[1] != 0 && pol2[2] != 0)
 					{
-						cout << "x1 : 0";
-						cout << "\nx2 : " << pol2[1] * -1 << "/" << pol2[2];
+						cout << "X1 : 0";
+						cout << "\nX2 : " << pol2[1] * -1 << "/" << pol2[2];
 					}
 					else if (pol2[0] != 0 && pol2[1] == 0 && pol2[2] != 0)
 					{
@@ -627,12 +705,13 @@ int main()
 						}
 						else if (pol2[0] * -1 > 0)
 						{
-							cout << "x1 : -" << sqrt((pol2[0] * -1) / pol2[2]);
-							cout << "x1 : +" << sqrt((pol2[0] * -1) / pol2[2]);
+							cout << "X1 : -" << sqrt((pol2[0] * -1) / pol2[2]);
+							cout << "\nX2 : +" << sqrt((pol2[0] * -1) / pol2[2]);
 						}
 					}
 				}
 			}
+			cout << "\n\n\033[0m------------------------------------";
 			cout << "\n\nPremi un tasto per continuare . . . ";
 			carattere = getch();
 			system("cls");
@@ -645,7 +724,72 @@ int main()
 			cout << " | ||  \\| | | | |  _| | |_) \\___ \\|  _|   / /  | | | | |  \\| || | " << endl;
 			cout << " | || |\\  | | | | |___|  _ < ___) | |___ / /_  | | |_| | |\\  || | " << endl;
 			cout << "|___|_| \\_| |_| |_____|_| \\_\\____/|_____/____|___\\___/|_| \\_|___|" << endl;
-			cout << "\033[0m" << endl;
+			cout << "\n\033[0m==================================================================\n\n";
+			cout << "Polinomi inseriti :\n\n\033[31mP(x) \033[0m= \033[32m";
+
+			for (int i = numeri; i >= 0; i--)
+			{
+				if (pol1[i] != 0)
+				{
+
+					if (i != 0)
+					{
+						if (pol1[i] > 0)
+						{
+							cout << " +" << pol1[i] << "x^" << i;
+						}
+						else
+						{
+							cout << " " << pol1[i] << "x^" << i;
+						}
+					}
+					else
+					{
+						if (pol1[i] > 0)
+						{
+							cout << " +" << pol1[i];
+						}
+						else
+						{
+							cout << " " << pol1[i];
+						}
+					}
+				}
+			}
+
+			cout << "\n\n\033[33mR(x) \033[0m= \033[32m";
+
+			for (int i = numeri2; i >= 0; i--)
+			{
+				if (pol2[i] != 0)
+				{
+
+					if (i != 0)
+					{
+						if (pol2[i] > 0)
+						{
+							cout << " +" << pol2[i] << "x^" << i;
+						}
+						else
+						{
+							cout << " " << pol2[i] << "x^" << i;
+						}
+					}
+					else
+					{
+						if (pol2[i] > 0)
+						{
+							cout << " +" << pol2[i];
+						}
+						else
+						{
+							cout << " " << pol2[i];
+						}
+					}
+				}
+			}
+
+			cout << "\n\n\033[0mCerchiamo i punti in cui i polinomi si incontrano :\n\n";
 
 			int x1 = 0;
 			int x2 = 0;
@@ -675,7 +819,7 @@ int main()
 					{
 						x1 = (polfine[0] * -1) / polfine[1];
 						y1 = (pol1[1] * x1) + pol1[0];
-						cout << "X : " << x1 << " Y : " << y1;
+						cout << "( X ; Y ) == ( \033[32m" << x1 << "\033[0m ; \033[32m" << y1 << " \033[0m )\n\n";
 					}
 				}
 
@@ -699,8 +843,8 @@ int main()
 							y1 = (pol1[2] * pow(x1, 2)) + (pol1[1] * x1) + pol1[0];
 							y2 = (pol1[2] * pow(x2, 2)) + (pol1[1] * x2) + pol1[0];
 
-							cout << "X : " << x1 << " Y : " << y1;
-							cout << "\nX2 : " << x2 << " Y2 : " << y2;
+							cout << "1( X ; Y ) == ( \033[32m" << x1 << "\033[0m ; \033[32m" << y1 << " \033[0m )\n";
+							cout << "2( X ; Y ) == ( \033[32m" << x2 << "\033[0m ; \033[32m" << y2 << " \033[0m )\n\n";
 						}
 					}
 
@@ -712,8 +856,8 @@ int main()
 						y1 = (pol1[2] * pow(x1, 2)) + (pol1[1] * x1) + pol1[0];
 						y2 = (pol1[2] * pow(x2, 2)) + (pol1[1] * x2) + pol1[0];
 
-						cout << "X : " << x1 << " Y : " << y1;
-						cout << "\nX2 : " << x2 << " Y2 : " << y2;
+						cout << "1( X ; Y ) == ( \033[32m" << x1 << "\033[0m ; \033[32m" << y1 << " \033[0m )\n";
+						cout << "2( X ; Y ) == ( \033[32m" << x2 << "\033[0m ; \033[32m" << y2 << " \033[0m )\n\n";
 					}
 
 					else if (polfine[0] != 0 && polfine[1] == 0 && polfine[2] != 0)
@@ -731,8 +875,8 @@ int main()
 							y1 = (pol1[2] * pow(x1, 2)) + (pol1[1] * x1) + pol1[0];
 							y2 = (pol1[2] * pow(x2, 2)) + (pol1[1] * x2) + pol1[0];
 
-							cout << "X : " << x1 << " Y : " << y1;
-							cout << "\nX2 : " << x2 << " Y2 : " << y2;
+							cout << "1( X ; Y ) == ( \033[32m" << x1 << "\033[0m ; \033[32m" << y1 << " \033[0m )\n";
+							cout << "2( X ; Y ) == ( \033[32m" << x2 << "\033[0m ; \033[32m" << y2 << " \033[0m )\n\n";
 						}
 					}
 				}
