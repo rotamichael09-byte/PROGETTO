@@ -1,4 +1,4 @@
-#include <iostream>
+ #include <iostream>
 #include <cmath>
 #include <conio.h>
 using namespace std;
@@ -34,7 +34,7 @@ int main()
 	cout << "  \033[37mROTA MICHAEL\033[0m\n";
 	cout << "  \033[37mCOLOMBO FRANCESCO\033[0m\n";
 	cout << "  \033[37mSPINELLI FILIPPO\033[0m\n\n";
-	cout << "\033[1;3;4m\nPremi un tasto per continuare...\033[0m";
+	cout << "\033[1;3;4m\nPremi un tasto per continuare\033[0m . . .";
 	carattere = getch();
 	bool primo = true;
 
@@ -111,7 +111,7 @@ int main()
 					uguali = false;
 				}
 			}
-			cout << "\n\n\nP(x) : ";
+			cout << "\n\n\n\033[31mP(x) \033[0m: ";
 
 			for (int i = numeri; i >= 0; i--)
 			{
@@ -142,7 +142,7 @@ int main()
 					}
 				}
 			}
-			cout << "\nR(x) : ";
+			cout << "\n\033[33mR(x)\033[0m : ";
 
 			for (int i = numeri2; i >= 0; i--)
 			{
@@ -174,7 +174,7 @@ int main()
 				}
 			}
 			primo = false;
-			cout << "\n\n\033[4m\033[1m\033[3mPremi un tasto per continuare\033[0m . . . ";
+			cout << "\033[4m\033[1m\033[3mPremi un tasto per continuare\033[0m . . . ";
 			carattere = getch();
 			system("cls");
 		}
@@ -194,7 +194,7 @@ int main()
 			}
 
 		cout << "\n\n\033[1m\033[3mCosa vuoi fare oggi con i tuoi polinomi?\033[0m\n\n";
-		cout << "  \033[1;32m[1]\033[0m SOMMAA \t\t-> somma tra P(x) + R(x)\n";
+		cout << "  \033[1;32m[1]\033[0m SOMMA \t\t-> somma tra P(x) + R(x)\n";
 		cout << "  \033[1;32m[2]\033[0m DIFFERENZA \t-> Differenza tra P(x) - R(x)\n";
 		cout << "  \033[1;32m[3]\033[0m PRODOTTO \t\t-> Prodotto tra P(x) * R(x)\n";
 		cout << "  \033[1;32m[4]\033[0m ZERI \t\t-> Trova i valori di x\n";
@@ -314,7 +314,7 @@ int main()
 						}
 						else
 						{
-							if (pol2[i] > 0)
+							if (polfine[i] > 0)
 							{
 								cout << " +" << polfine[i];
 							}
@@ -341,15 +341,8 @@ int main()
 			cout << "|____/|___|_|   |_|   |_____|_| \\_\\_____|_| \\_|/____/_/   \\_\\\n";
 			cout << "\n\033[0m=================================================================\n\n";
 			for (int i = 3; i >= 0; i--)
-			{
-				if (pol1[i] != 0 && pol2[i] != 0 || pol1[i] != 0 && pol2[i] == 0)
-				{
+			{	
 					polfine[i] = pol1[i] - pol2[i];
-				}
-				else if (pol1[i] == 0 && pol2[i] != 0)
-				{
-					polfine[i] = pol1[i] + pol2[i];
-				}
 			}
 
 			cout << "Polinomio \033[31mP(x)\033[32m\n";
@@ -559,7 +552,7 @@ int main()
 						}
 						else
 						{
-							if (pol2[i] > 0)
+							if (polfine[i] > 0)
 							{
 								cout << " +" << polfine[i];
 							}
@@ -840,7 +833,7 @@ int main()
 			cout << "\n\n\033[0mCerchiamo i punti in cui i polinomi si incontrano :\n\n";
 			if (uguali)
 			{
-				cout << "\nI due polinomi sono \033[32mcoincidenti \033[0messendo uguali\n";
+				cout << "\nI due polinomi sono \033[32mcoincidenti \033[0messendo uguali";
 			}
 			else
 			{
@@ -866,7 +859,7 @@ int main()
 					{
 						if (polfine[1] == 0)
 						{
-							cout << "Non ci sono punti di intersezione";
+							cout << "\033[31mNon ci sono punti di intersezione\033[0m";
 						}
 
 						else
@@ -886,7 +879,7 @@ int main()
 
 							if (delta < 0)
 							{
-								cout << "Non ci sono punti di intersezione";
+								cout << "\033[31mNon ci sono punti di intersezione\033[0m";
 							}
 
 							else
@@ -918,7 +911,7 @@ int main()
 						{
 							if (polfine[0] * -1 < 0)
 							{
-								cout << "Non ci sono punti di intersezione";
+								cout << "\0033[31mNon ci sono punti di intersezione\033[0m";
 							}
 
 							else
@@ -933,6 +926,9 @@ int main()
 								cout << "2( X ; Y ) == ( \033[32m" << x2 << "\033[0m ; \033[32m" << y2 << " \033[0m )";
 							}
 						}
+						else {
+							cout << "\033[31mNon ci sono punti di intersezione\033[0m";
+						}
 					}
 				}
 			}
@@ -944,7 +940,7 @@ int main()
 		else if (opz == '9')
 		{
 			char sicuro;
-			cout << "Vuoi davvero uscire (s) / (n) : ";
+			cout << "Vuoi davvero uscire \033[32m(s)\033[0m / \033[31m(n)\033[0m : ";
 			sicuro = getch();
 			if (sicuro == 's')
 			{
