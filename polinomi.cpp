@@ -1,4 +1,4 @@
- #include <iostream>
+#include <iostream>
 #include <cmath>
 #include <conio.h>
 using namespace std;
@@ -6,6 +6,7 @@ using namespace std;
 int main()
 {
 	char carattere;
+	system("cls");
 	cout << "\033[1;33m";
 	cout << " ____  ____   ___   ____ _____ _____ _____ ___    ____   ___  _     ___ _   _  ___  __  __ ___ " << endl;
 	cout << "|  _ \\|  _ \\ / _ \\ / ___| ____|_   _|_   _/ _ \\  |  _ \\ / _ \\| |   |_ _| \\ | |/ _ \\|  \\/  |_ _| " << endl;
@@ -164,17 +165,17 @@ int main()
 					{
 						if (pol2[i] > 0)
 						{
-							cout << " +" << pol2[i] << "\n\n";
+							cout << " +" << pol2[i];
 						}
 						else
 						{
-							cout << " " << pol2[i] << "\n\n";
+							cout << " " << pol2[i];
 						}
 					}
 				}
 			}
 			primo = false;
-			cout << "\033[4m\033[1m\033[3mPremi un tasto per continuare\033[0m . . . ";
+			cout << "\n\n\033[4m\033[1m\033[3mPremi un tasto per continuare\033[0m . . . ";
 			carattere = getch();
 			system("cls");
 		}
@@ -963,3 +964,4 @@ int main()
 	cout << "\x1b[0m";
 	return 0;
 }
+
