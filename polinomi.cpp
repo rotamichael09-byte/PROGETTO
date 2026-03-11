@@ -1,12 +1,13 @@
 #include <iostream>
 #include <cmath>
 #include <conio.h>
+#include <cctype>
 using namespace std;
 
 int main()
 {
-	char carattere;
 	system("cls");
+	char carattere;
 	cout << "\033[1;33m";
 	cout << " ____  ____   ___   ____ _____ _____ _____ ___    ____   ___  _     ___ _   _  ___  __  __ ___ " << endl;
 	cout << "|  _ \\|  _ \\ / _ \\ / ___| ____|_   _|_   _/ _ \\  |  _ \\ / _ \\| |   |_ _| \\ | |/ _ \\|  \\/  |_ _| " << endl;
@@ -44,14 +45,15 @@ int main()
 	double pol2[4];
 
 	for (int i = 3; i >= 0; i--)
-			{
-				pol1[i] = 0;
-				pol2[i] = 0;
-			}
+	{
+		pol1[i] = 0;
+		pol2[i] = 0;
+	}
 
 	int numeri;
 	int numeri2;
 	bool uguali = true;
+	cout.precision(2);
 
 	while (true)
 	{
@@ -71,40 +73,117 @@ int main()
 			cout << " | || |\\  |___) | |___|  _ < | || |  | | |___| |\\  | | || |_| |" << endl;
 			cout << "|___|_| \\_|____/|_____|_| \\_\\___|_|  |_|_____|_| \\_| |_| \\___/ " << endl;
 			cout << "\033[0m" << endl;
-			cout << "\n\033[1m\033[3mQuale grado vuoi inserire nel primo polinomio : \033[0m";
-			cin >> numeri;
+
+			do
+			{
+
+				cout << "\n\033[1m\033[3mQuale grado vuoi inserire nel primo polinomio : \033[0m";
+				cin >> numeri;
+
+				if (cin.fail())
+				{
+					cout << "\033[31mAttenzione accetto solo numeri :( \033[0m\n\n";
+					cin.clear();
+					cin.ignore(1000, '\n');
+				}
+
+				else if (numeri > 3 || numeri < 0)
+				{
+					cout << "\033[33mAttenzione il mio numero massimo e' 3 :|\033[0m\n\n";
+				}
+
+				else
+				{
+					break;
+				}
+
+			} while (true);
 			cout << "\n\n\033[1m\033[3m";
 
 			for (int i = numeri; i >= 0; i--)
 			{
-				if (i != 0)
+				while (true)
 				{
-					cout << "Valore alla " << i << "^ :\t";
+					if (i != 0)
+					{
+						cout << "Valore alla " << i << "^ :\t";
+					}
+					else
+					{
+						cout << "Termine noto :\t\t";
+					}
+
+					cin >> pol1[i];
+
+					if (cin.fail())
+					{
+						cout << "\033[31mAttenzione! Inserisci solo numeri.\033[0m\n\n";
+						cin.clear();
+						cin.ignore(1000, '\n');
+					}
+					else
+					{
+						break;
+					}
 				}
-				else
-				{
-					cout << "Termine noto :\t\t";
-				}
-				cin >> pol1[i];
 			}
 
 			cout << "\n\n\n\n";
-			cout << "\033[1m\033[3mQuale grado vuoi inserire nel secondo polinomio : \033[0m";
-			cin >> numeri2;
-			cout << "\n\n";
+			do
+			{
+
+				cout << "\n\033[1m\033[3mQuale grado vuoi inserire nel secondo polinomio : \033[0m";
+				cin >> numeri2;
+
+				if (cin.fail())
+				{
+					cout << "\033[31mAttenzione accetto solo numeri :( \033[0m\n\n";
+					cin.clear();
+					cin.ignore(1000, '\n');
+				}
+
+				else if (numeri2 > 3 || numeri2 < 0)
+				{
+					cout << "\033[33mAttenzione il mio numero massimo e' 3 :|\033[0m\n\n";
+				}
+
+				else
+				{
+					break;
+				}
+
+			} while (true);
+
+			cout << "\n";
 
 			for (int i = numeri2; i >= 0; i--)
 			{
-				if (i != 0)
+				while (true)
 				{
-					cout << "Valore alla " << i << "^ : \t";
+					if (i != 0)
+					{
+						cout << "Valore alla " << i << "^ :\t";
+					}
+					else
+					{
+						cout << "Termine noto :\t\t";
+					}
+
+					cin >> pol2[i];
+
+					if (cin.fail())
+					{
+						cout << "\033[31mAttenzione! Inserisci solo numeri.\033[0m\n\n";
+						cin.clear();
+						cin.ignore(1000, '\n');
+					}
+					else
+					{
+						break;
+					}
 				}
-				else
-				{
-					cout << "Termine noto : \t\t";
-				}
-				cin >> pol2[i];
 			}
+
 			for (int i = 3; i >= 0; i--)
 			{
 				if (pol1[i] != pol2[i])
@@ -190,9 +269,9 @@ int main()
 		char opz;
 		double polfine[7];
 		for (int i = 6; i >= 0; i--)
-			{
-				polfine[i] = 0;
-			}
+		{
+			polfine[i] = 0;
+		}
 
 		cout << "\n\n\033[1m\033[3mCosa vuoi fare oggi con i tuoi polinomi?\033[0m\n\n";
 		cout << "  \033[1;32m[1]\033[0m SOMMA \t\t-> somma tra P(x) + R(x)\n";
@@ -202,9 +281,23 @@ int main()
 		cout << "  \033[1;32m[5]\033[0m INTERSEZIONI \t-> Trova i punti di intersezione tra P(x) e R(x)\n";
 		cout << "  \033[1;32m[6]\033[0m GRAFICO \t\t-> Visualizza il grafico\n\n";
 		cout << "  \033[1;32m[9]\033[0m ESCI \t\t-> Chiude il programma\n\n\n";
-		cout << "\033[1m\033[3mInserisci operazione : ";
+		do
+		{
 
-		opz = getch();
+			cout << "\033[1m\033[3mInserisci operazione : ";
+
+			opz = getch();
+
+			if ((opz >= '0' && opz <= '6') || opz == '9')
+			{
+				cout << opz;
+				break;
+			}
+
+			cout << "  \033[31mInput non valido! Usa solo 1-6 oppure 9.\033[0m\n\n";
+
+		} while (true);
+
 		system("cls");
 
 		if (opz == '0')
@@ -342,8 +435,8 @@ int main()
 			cout << "|____/|___|_|   |_|   |_____|_| \\_\\_____|_| \\_|/____/_/   \\_\\\n";
 			cout << "\n\033[0m=================================================================\n\n";
 			for (int i = 3; i >= 0; i--)
-			{	
-					polfine[i] = pol1[i] - pol2[i];
+			{
+				polfine[i] = pol1[i] - pol2[i];
 			}
 
 			cout << "Polinomio \033[31mP(x)\033[32m\n";
@@ -651,15 +744,22 @@ int main()
 			}
 			else if (pol1[3] == 0)
 			{
-				if ( pol1[1] == 0 && pol1[2] == 0 ) {
-					cout << "Impossibile";
-				}
-
-				else if (pol1[2] == 0 && pol1[1] != 0 )
+				if (pol1[2] == 0)
 				{
-					cout << " X : " << (pol1[0] * -1) / pol1[1];
+					if (pol1[1] == 0)
+					{
+						cout << "Non ci sono X";
+					}
+					else if (pol1[1] != 0 && pol1[0] == 0)
+					{
+						cout << "X : \033[32m0\033[0m";
+					}
+					else
+					{
+						cout << " X : " << (pol1[0] * -1) / pol1[1];
+					}
 				}
-				else if (pol1[2] != 0 )
+				else if (pol1[2] != 0)
 				{
 					if (pol1[0] != 0 && pol1[1] != 0 && pol1[2] != 0)
 					{
@@ -692,6 +792,10 @@ int main()
 							cout << "\nX2 : +" << sqrt((pol1[0] * -1) / pol1[2]);
 						}
 					}
+					else if (pol1[0] == 0 && pol1[1] == 0 && pol1[2] != 0)
+					{
+						cout << "X : \033[32m0\033[0m";
+					}
 				}
 			}
 			if (uguali)
@@ -708,13 +812,21 @@ int main()
 				}
 				else if (pol2[3] == 0)
 				{
-					 if (pol2[2] == 0 && pol2[1] == 0)
-				{
-					cout << "Impossibile";
-				}
-					if (pol2[2] == 0 && pol2[1] != 0 )
+
+					if (pol2[2] == 0)
 					{
-						cout << " X : " << (pol2[0] * -1) / pol2[1];
+						if (pol2[1] == 0)
+						{
+							cout << "Non ci sono X";
+						}
+						else if (pol2[1] != 0 && pol2[0] == 0)
+						{
+							cout << "X : \033[32m0\033[0m";
+						}
+						else
+						{
+							cout << " X : " << (pol2[0] * -1) / pol2[1];
+						}
 					}
 					else if (pol2[2] != 0)
 					{
@@ -748,6 +860,10 @@ int main()
 								cout << "X1 : -" << sqrt((pol2[0] * -1) / pol2[2]);
 								cout << "\nX2 : +" << sqrt((pol2[0] * -1) / pol2[2]);
 							}
+						}
+						else if (pol1[0] == 0 && pol1[1] == 0 && pol1[2] != 0)
+						{
+							cout << "X : \033[32m0\033[0m";
 						}
 					}
 				}
@@ -862,6 +978,12 @@ int main()
 						{
 							cout << "\033[31mNon ci sono punti di intersezione\033[0m";
 						}
+						else if (polfine[1] != 0 && polfine[0] == 0)
+						{
+							x1 = 0;
+							y1 = (pol1[1] * x1) + pol1[0];
+							cout << "( X ; Y ) == ( \033[32m" << x1 << "\033[0m ; \033[32m" << y1 << " \033[0m )";
+						}
 
 						else
 						{
@@ -927,7 +1049,14 @@ int main()
 								cout << "2( X ; Y ) == ( \033[32m" << x2 << "\033[0m ; \033[32m" << y2 << " \033[0m )";
 							}
 						}
-						else {
+						else if (pol2[2] != 0 && polfine[1] == 0 && polfine[0] == 0)
+						{
+							x1 = 0;
+							y1 = (pol1[2] * pow(x1, 2)) + (pol1[1] * x1) + pol1[0];
+							cout << "( X ; Y ) == ( \033[32m" << x1 << "\033[0m ; \033[32m" << y1 << " \033[0m )";
+						}
+						else
+						{
 							cout << "\033[31mNon ci sono punti di intersezione\033[0m";
 						}
 					}
@@ -941,8 +1070,21 @@ int main()
 		else if (opz == '9')
 		{
 			char sicuro;
-			cout << "Vuoi davvero uscire \033[32m(s)\033[0m / \033[31m(n)\033[0m : ";
-			sicuro = getch();
+			do
+			{
+
+				cout << "Vuoi davvero uscire \033[32m(s)\033[0m / \033[31m(n)\033[0m : ";
+				sicuro = getch();
+
+				if (sicuro == 's' || sicuro == 'n')
+				{
+					cout << sicuro;
+					break;
+				}
+
+				cout << "  \033[33mAttenzione! Premi solo 's' per si oppure 'n' per no.\033[0m\n\n";
+
+			} while (true);
 			if (sicuro == 's')
 			{
 				system("cls");
@@ -962,6 +1104,6 @@ int main()
 	cout << "|  _|  | || |\\  | |___ " << endl;
 	cout << "|__|  |___|_| \\_|_____|" << endl;
 	cout << "\x1b[0m";
+
 	return 0;
 }
-
