@@ -9,6 +9,7 @@ using namespace std;
 int main()
 {
 	system("cls");
+	SetConsoleTitleA("Programma grafico polinomi");
 	char carattere;
 	cout << "\033[1;33m";
 	cout << " ____  ____   ___   ____ _____ _____ _____ ___    ____   ___  _     ___ _   _  ___  __  __ ___ " << endl;
@@ -1069,49 +1070,74 @@ int main()
 			carattere = getch();
 			system("cls");
 		}
-		else if ( opz == '6' ) {
-			int unita = 10;
-			
-		
-			
-			
+		else if (opz == '6')
+		{
+			int unita = 15;
+
 			cout << "Premi un tasto per inizializzare la grafica . . .";
 			carattere = getch();
-			
-			ShowWindow(GetConsoleWindow() , SW_HIDE);
-			
-			int GraphDriver=0,GraphMode=0;
-			initgraph(&GraphDriver,&GraphMode,"",801 ,901);
-			line(0 , 401 , 801 , 401 );
-			line(401 , 0 , 401 , 801 );
-			line(0 , 801 , 801 , 801 );
-			int cy = 0;
-			int cy2 = 0;
-			for ( int i = -5 ; i <= 5 ; i++ ) {
-			   cy2 = 0;
-			   cy = 0;
-			   
-			   for ( int j = 3 ; j >= 1 ; j-- ) {
-			   	cy += pol1[j] * pow(i , j);
-			   }
-			   cy += pol1[0];
-			   
-			   setcolor(RED);
-			   circle ( 401 + (i * unita) , 401 - ( cy * unita ) , 3);
-				
-				
-				 for ( int j = 3 ; j >= 1 ; j-- ) {
-			   	cy2 += pol2[j] * pow(i , j);
-			   }
-			   
-			   cy2 += pol2[0];
-				setcolor(YELLOW);
-				circle ( 401 + (i * unita) , 401 - ( cy2 * unita ) , 3);
-				
+
+			ShowWindow(GetConsoleWindow(), SW_HIDE);
+
+			int GraphDriver = 0, GraphMode = 0;
+			initgraph(&GraphDriver, &GraphMode, "", 601, 702);
+			line(0, 301, 601, 301);
+			line(301, 0, 301, 601);
+			line(0, 601, 601, 601);
+
+			double cy = 0;
+			double cy2 = 0;
+
+			for (double i = -5; i <= 5; i += 0.5)
+			{
+
+				cy = 0;
+				cy2 = 0;
+
+				for (int j = 3; j >= 1; j--)
+				{
+					cy += pol1[j] * pow(i, j);
+				}
+				cy += pol1[0];
+
+				int x = 301 + (i * unita);
+				int y = 301 - (cy * unita);
+
+				if (x >= 0 && x <= 601 && y >= 0 && y <= 601)
+				{
+					setcolor(RED);
+					circle(x, y, 2);
+				}
+
+				for (int j = 3; j >= 1; j--)
+				{
+					cy2 += pol2[j] * pow(i, j);
+				}
+				cy2 += pol2[0];
+
+				x = 301 + (i * unita);
+				y = 301 - (cy2 * unita);
+
+				if (x >= 0 && x <= 601 && y >= 0 && y <= 601)
+				{
+					setcolor(YELLOW);
+					circle(x, y, 2);
+				}
 			}
+            settextstyle( 2 , 0 , 5); 
+            setcolor(RED);
+			outtextxy( 21 , 651 , "P(x) : ");
+			setcolor(GREEN);
+			outtextxy( 61 , 651 , "Primo polinomio" );
+			setcolor(YELLOW);
+			outtextxy( 401 , 651 , "R(x) : ");
+			setcolor(GREEN);
+			outtextxy( 441 , 651 , "Secondo polinomio" );
+			
+
 			getchg();
 			cleardevice();
-			ShowWindow(GetConsoleWindow() , SW_SHOW);
+			ShowWindow(GetConsoleWindow(), SW_SHOW);
 			closegraph();
 			system("cls");
 		}
@@ -1155,4 +1181,3 @@ int main()
 
 	return 0;
 }
-
