@@ -2,6 +2,8 @@
 #include <cmath>
 #include <conio.h>
 #include <cctype>
+#include "graphics2.h"
+#include <windows.h>
 using namespace std;
 
 int main()
@@ -428,12 +430,11 @@ int main()
 		else if (opz == '2')
 		{
 			cout << "\033[1;33m";
-cout << "  _____  _____  ______ ______ ______ _____  ______ _   _ ______          \n";
-    cout << " |  __ \\|_   _||  ____|  ____|  ____|  __ \\|  ____| \\ | |___  /    /\\    \n";
-    cout << " | |  | | | |  | |__  | |__  | |__  | |__) | |__  |  \\| |  / /    /  \\   \n";
-    cout << " | |  | | | |  |  __| |  __| |  __| |  _  /|  __| | . ` | / /    / /\\ \\  \n";
-    cout << " | |__| |_| |_ | |    | |    | |____| | \\ \\| |____| |\\  |/ /__  / ____ \\ \n";
-    cout << " |_____/|_____||_|    |_|    |______|_|  \\_\\______|_| \\_/_____|/_/    \\_\\\n";
+			cout << " ___  ___ _____ _____ _____ ____  _____ _   _ _____  _ \n";
+			cout << "|  _ \\|_ _|  ___|  ___| ____|  _ \\| ____| \\ | |__  / / \\ \n";
+			cout << "| | | || || |_  | |_  |  _| | |_) |  _| |  \\| |  / / / _ \\ \n";
+			cout << "| |_| || ||  _| |  _| | |___|  _ <| |___| |\\  | / /_/ ___ \\ \n";
+			cout << "|____/|___|_|   |_|   |_____|_| \\_\\_____|_| \\_|/____/_/   \\_\\\n";
 			cout << "\n\033[0m=================================================================\n\n";
 			for (int i = 3; i >= 0; i--)
 			{
@@ -1066,6 +1067,52 @@ cout << "  _____  _____  ______ ______ ______ _____  ______ _   _ ______        
 			cout << "\n\n\033[0m------------------------------------\n\n";
 			cout << "\n\n\033[4m\033[1m\033[3mPremi un tasto per continuare\033[0m . . . ";
 			carattere = getch();
+			system("cls");
+		}
+		else if ( opz == '6' ) {
+			int unita = 10;
+			
+		
+			
+			
+			cout << "Premi un tasto per inizializzare la grafica . . .";
+			carattere = getch();
+			
+			ShowWindow(GetConsoleWindow() , SW_HIDE);
+			
+			int GraphDriver=0,GraphMode=0;
+			initgraph(&GraphDriver,&GraphMode,"",801 ,901);
+			line(0 , 401 , 801 , 401 );
+			line(401 , 0 , 401 , 801 );
+			line(0 , 801 , 801 , 801 );
+			int cy = 0;
+			int cy2 = 0;
+			for ( int i = -5 ; i <= 5 ; i++ ) {
+			   cy2 = 0;
+			   cy = 0;
+			   
+			   for ( int j = 3 ; j >= 1 ; j-- ) {
+			   	cy += pol1[j] * pow(i , j);
+			   }
+			   cy += pol1[0];
+			   
+			   setcolor(RED);
+			   circle ( 401 + (i * unita) , 401 - ( cy * unita ) , 3);
+				
+				
+				 for ( int j = 3 ; j >= 1 ; j-- ) {
+			   	cy2 += pol2[j] * pow(i , j);
+			   }
+			   
+			   cy2 += pol2[0];
+				setcolor(YELLOW);
+				circle ( 401 + (i * unita) , 401 - ( cy2 * unita ) , 3);
+				
+			}
+			getchg();
+			cleardevice();
+			ShowWindow(GetConsoleWindow() , SW_SHOW);
+			closegraph();
 			system("cls");
 		}
 		else if (opz == '9')
