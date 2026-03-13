@@ -37,8 +37,8 @@ int main()
 	cout << "\033[1;35mMembri del gruppo:\033[0m\n\n";
 
 	cout << "  \033[37mROTA MICHAEL\033[0m\n";
-	cout << "  \033[37mCOLOMBO FRANCESCO\033[0m\n";
 	cout << "  \033[37mSPINELLI FILIPPO\033[0m\n\n";
+	cout << "  \033[37mCOLOMBO FRANCESCO\033[0m\n";
 	cout << "\033[1;3;4m\nPremi un tasto per continuare\033[0m . . .";
 	carattere = getch();
 	bool primo = true;
@@ -1181,4 +1181,5 @@ int main()
 
 	return 0;
 }
+
 
