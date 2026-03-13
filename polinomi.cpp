@@ -1078,7 +1078,7 @@ int main()
 			carattere = getch();
 
 			ShowWindow(GetConsoleWindow(), SW_HIDE);
-
+           //Grafico dei polinomi
 			int GraphDriver = 0, GraphMode = 0;
 			initgraph(&GraphDriver, &GraphMode, "", 601, 702);
 			line(0, 301, 601, 301);
@@ -1181,6 +1181,7 @@ int main()
 
 	return 0;
 }
+
 
 
 
