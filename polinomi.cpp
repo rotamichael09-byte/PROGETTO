@@ -275,7 +275,7 @@ int main()
 		{
 			polfine[i] = 0;
 		}
-
+        //Opzioni scelta utente
 		cout << "\n\n\033[1m\033[3mCosa vuoi fare oggi con i tuoi polinomi?\033[0m\n\n";
 		cout << "  \033[1;32m[1]\033[0m SOMMA \t\t-> somma tra P(x) + R(x)\n";
 		cout << "  \033[1;32m[2]\033[0m DIFFERENZA \t-> Differenza tra P(x) - R(x)\n";
@@ -1181,5 +1181,6 @@ int main()
 
 	return 0;
 }
+
 
 
