@@ -1088,39 +1088,46 @@ int main()
 
 				while (personalizzazione)
 				{
+					cout << "Pagina formattazione grafico : \n\n";
+					cout << "  \033[1;31m[r]\033[0m ROSSO\n";
+		            cout << "  \033[1;33m[y]\033[0m GIALLO\n";
+		            cout << "  \033[1;32m[g]\033[0m VERDE\n";
+	            	cout << "  \033[1;34m[b]\033[0m BLU\n\n";
 					do
 					{
-						cout << "\033[1m\033[3mInserisci l'iniziale del colore del primo polinomio (red, yellow, green, blue): ";
-						cin >> col1;
+						cout << "\033[1m\033[3mInserisci il colore del primo polinomio : ";
+						col1 = getch();
+						cout << col1;
 
 						if (col1 != 'r' && col1 != 'y' && col1 != 'g' && col1 != 'b')
 						{
-							cout << "\033[31mErrore: colore non valido!\033[0m" << endl;
+							cout << "  \033[31mErrore: colore non valido!\033[0m" << endl;
 						}
 
 					} while (col1 != 'r' && col1 != 'y' && col1 != 'g' && col1 != 'b');
-
+                     cout << "\n\n";
 					do
 					{
-						cout << "\033[1m\033[3m\n\nInserisci l'iniziale del colore del secondo polinomio (red, yellow, green, blue): ";
-						cin >> col2;
+						cout << "\033[1m\033[3mInserisci il colore del secondo polinomio : ";
+						col2 = getch();
+						cout << col2;
 
 						if (col2 != 'r' && col2 != 'y' && col2 != 'g' && col2 != 'b')
 						{
-							cout << "\033[31mErrore: colore non valido!\033[0m" << endl;
+							cout << "  \033[31mErrore: colore non valido!\033[0m" << endl;
 						}
 						else if (col2 == col1)
 						{
-							cout << "\033[31mErrore: il secondo colore non può essere uguale al primo!\033[0m" << endl;
+							cout << "  \033[31mErrore: il secondo colore non puo' essere uguale al primo!\033[0m" << endl;
 						}
 
 					} while ((col2 != 'r' && col2 != 'y' && col2 != 'g' && col2 != 'b') || col2 == col1);
 
-					cout << "\nScelte finali:" << endl;
+					cout << "\n\n\033[32m\033[1m\033[3mScelte finali\033[0m:" << endl;
 					cout << "Primo polinomio: " << col1 << endl;
 					cout << "Secondo polinomio: " << col2 << endl;
 
-					cout << "\n\nPremi un tasto per inizializzare la grafica . . .";
+					cout << "\n\n\033[1m\033[4m\033[3mPremi un tasto per inizializzare la grafica\033[0m . . .";
 					carattere = getch();
 
 					personalizzazione = false;
@@ -1196,7 +1203,7 @@ int main()
 						{
 							setcolor(BLUE);
 						}
-						circle(x, y, 2);
+						circle(x, y, 3);
 					}
 
 					for (int j = 3; j >= 1; j--)
@@ -1226,7 +1233,7 @@ int main()
 						{
 							setcolor(BLUE);
 						}
-						circle(x, y, 2);
+						circle(x, y, 3);
 					}
 				}
 				settextstyle(2, 0, 5);
