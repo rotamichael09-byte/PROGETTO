@@ -28,7 +28,7 @@ int main()
 	cout << "\033[3mCon questo software puoi:\033[0m\n\n";
 
 	cout << "  \033[1;32m[1]\033[0m Sommare due polinomi\n";
-	cout << "  \033[1;32m[2]\033[0m Calcolare la differenza\n";          //menu scelte utente
+	cout << "  \033[1;32m[2]\033[0m Calcolare la differenza\n";
 	cout << "  \033[1;32m[3]\033[0m Fare il prodotto\n";
 	cout << "  \033[1;32m[4]\033[0m Trovare gli zeri\n";
 	cout << "  \033[1;32m[5]\033[0m Calcolare l'intersezione tra polinomi\n";
@@ -37,8 +37,8 @@ int main()
 	cout << "\033[1;35mMembri del gruppo:\033[0m\n\n";
 
 	cout << "  \033[37mROTA MICHAEL\033[0m\n";
-	cout << "  \033[37mSPINELLI FILIPPO\033[0m\n\n";
 	cout << "  \033[37mCOLOMBO FRANCESCO\033[0m\n";
+	cout << "  \033[37mSPINELLI FILIPPO\033[0m\n\n";
 	cout << "\033[1;3;4m\nPremi un tasto per continuare\033[0m . . .";
 	carattere = getch();
 	bool primo = true;
@@ -275,7 +275,7 @@ int main()
 		{
 			polfine[i] = 0;
 		}
-        //Opzioni scelta utente
+
 		cout << "\n\n\033[1m\033[3mCosa vuoi fare oggi con i tuoi polinomi?\033[0m\n\n";
 		cout << "  \033[1;32m[1]\033[0m SOMMA \t\t-> somma tra P(x) + R(x)\n";
 		cout << "  \033[1;32m[2]\033[0m DIFFERENZA \t-> Differenza tra P(x) - R(x)\n";
@@ -1072,74 +1072,217 @@ int main()
 		}
 		else if (opz == '6')
 		{
-			int unita = 15;
+			bool personalizzazione = true;
+			char funzione;
+			bool uni = true;
+			char col1;
+			char col2;
+			int unita;
 
-			cout << "Premi un tasto per inizializzare la grafica . . .";
-			carattere = getch();
-
-			ShowWindow(GetConsoleWindow(), SW_HIDE);
-           //Grafico dei polinomi
-			int GraphDriver = 0, GraphMode = 0;
-			initgraph(&GraphDriver, &GraphMode, "", 601, 702);
-			line(0, 301, 601, 301);
-			line(301, 0, 301, 601);
-			line(0, 601, 601, 601);
-
-			double cy = 0;
-			double cy2 = 0;
-
-			for (double i = -5; i <= 5; i += 0.5)
+			do
 			{
-
-				cy = 0;
-				cy2 = 0;
-
-				for (int j = 3; j >= 1; j--)
+				if (funzione == 'i')
 				{
-					cy += pol1[j] * pow(i, j);
+					personalizzazione = true;
 				}
-				cy += pol1[0];
 
-				int x = 301 + (i * unita);
-				int y = 301 - (cy * unita);
+				while (personalizzazione)
+				{
+					do
+					{
+						cout << "\033[1m\033[3mInserisci l'iniziale del colore del primo polinomio (red, yellow, green, blue): ";
+						cin >> col1;
 
-				if (x >= 0 && x <= 601 && y >= 0 && y <= 601)
+						if (col1 != 'r' && col1 != 'y' && col1 != 'g' && col1 != 'b')
+						{
+							cout << "\033[31mErrore: colore non valido!\033[0m" << endl;
+						}
+
+					} while (col1 != 'r' && col1 != 'y' && col1 != 'g' && col1 != 'b');
+
+					do
+					{
+						cout << "\033[1m\033[3m\n\nInserisci l'iniziale del colore del secondo polinomio (red, yellow, green, blue): ";
+						cin >> col2;
+
+						if (col2 != 'r' && col2 != 'y' && col2 != 'g' && col2 != 'b')
+						{
+							cout << "\033[31mErrore: colore non valido!\033[0m" << endl;
+						}
+						else if (col2 == col1)
+						{
+							cout << "\033[31mErrore: il secondo colore non può essere uguale al primo!\033[0m" << endl;
+						}
+
+					} while ((col2 != 'r' && col2 != 'y' && col2 != 'g' && col2 != 'b') || col2 == col1);
+
+					cout << "\nScelte finali:" << endl;
+					cout << "Primo polinomio: " << col1 << endl;
+					cout << "Secondo polinomio: " << col2 << endl;
+
+					cout << "\n\nPremi un tasto per inizializzare la grafica . . .";
+					carattere = getch();
+
+					personalizzazione = false;
+				}
+
+				if (uni)
+				{
+					unita = 20;
+					uni = false;
+				}
+
+				else if (funzione == '+' && unita + 5 <= 35)
+				{
+					unita += 5;
+				}
+				else if (funzione == '-' && unita - 5 > 10)
+				{
+					unita -= 5;
+				}
+
+				ShowWindow(GetConsoleWindow(), SW_HIDE);
+
+				int GraphDriver = 0, GraphMode = 0;
+				initgraph(&GraphDriver, &GraphMode, "", 601, 702);
+
+				line(0, 301, 601, 301);
+				line(301, 0, 301, 601);
+				line(0, 601, 601, 601);
+
+				for (int i = unita; i <= 300; i += unita)
+				{
+
+					line(301 + i, 301 - 5, 301 + i, 301 + 5);
+					line(301 - i, 301 - 5, 301 - i, 301 + 5);
+
+					line(301 - 5, 301 + i, 301 + 5, 301 + i);
+					line(301 - 5, 301 - i, 301 + 5, 301 - i);
+				}
+
+				double cy = 0;
+				double cy2 = 0;
+
+				for (double i = -5; i <= 5; i += 0.5)
+				{
+
+					cy = 0;
+					cy2 = 0;
+
+					for (int j = 3; j >= 1; j--)
+					{
+						cy += pol1[j] * pow(i, j);
+					}
+					cy += pol1[0];
+
+					int x = 301 + (i * unita);
+					int y = 301 - (cy * unita);
+
+					if (x >= 0 && x <= 601 && y >= 0 && y <= 601)
+					{
+						if (col1 == 'r')
+						{
+							setcolor(RED);
+						}
+						else if (col1 == 'y')
+						{
+							setcolor(YELLOW);
+						}
+						else if (col1 == 'g')
+						{
+							setcolor(GREEN);
+						}
+						else if (col1 == 'b')
+						{
+							setcolor(BLUE);
+						}
+						circle(x, y, 2);
+					}
+
+					for (int j = 3; j >= 1; j--)
+					{
+						cy2 += pol2[j] * pow(i, j);
+					}
+					cy2 += pol2[0];
+
+					x = 301 + (i * unita);
+					y = 301 - (cy2 * unita);
+
+					if (x >= 0 && x <= 601 && y >= 0 && y <= 601)
+					{
+						if (col2 == 'r')
+						{
+							setcolor(RED);
+						}
+						else if (col2 == 'y')
+						{
+							setcolor(YELLOW);
+						}
+						else if (col2 == 'g')
+						{
+							setcolor(GREEN);
+						}
+						else if (col2 == 'b')
+						{
+							setcolor(BLUE);
+						}
+						circle(x, y, 2);
+					}
+				}
+				settextstyle(2, 0, 5);
+
+				if (col1 == 'r')
 				{
 					setcolor(RED);
-					circle(x, y, 2);
 				}
-
-				for (int j = 3; j >= 1; j--)
-				{
-					cy2 += pol2[j] * pow(i, j);
-				}
-				cy2 += pol2[0];
-
-				x = 301 + (i * unita);
-				y = 301 - (cy2 * unita);
-
-				if (x >= 0 && x <= 601 && y >= 0 && y <= 601)
+				else if (col1 == 'y')
 				{
 					setcolor(YELLOW);
-					circle(x, y, 2);
 				}
-			}
-            settextstyle( 2 , 0 , 5); 
-            setcolor(RED);
-			outtextxy( 21 , 651 , "P(x) : ");
-			setcolor(GREEN);
-			outtextxy( 61 , 651 , "Primo polinomio" );
-			setcolor(YELLOW);
-			outtextxy( 401 , 651 , "R(x) : ");
-			setcolor(GREEN);
-			outtextxy( 441 , 651 , "Secondo polinomio" );
-			
+				else if (col1 == 'g')
+				{
+					setcolor(GREEN);
+				}
+				else if (col1 == 'b')
+				{
+					setcolor(BLUE);
+				}
+				outtextxy(21, 651, "P(x) : ");
+				setcolor(WHITE);
+				outtextxy(61, 651, "Primo polinomio");
 
-			getchg();
-			cleardevice();
-			ShowWindow(GetConsoleWindow(), SW_SHOW);
-			closegraph();
-			system("cls");
+				if (col2 == 'r')
+				{
+					setcolor(RED);
+				}
+				else if (col2 == 'y')
+				{
+					setcolor(YELLOW);
+				}
+				else if (col2 == 'g')
+				{
+					setcolor(GREEN);
+				}
+				else if (col2 == 'b')
+				{
+					setcolor(BLUE);
+				}
+				outtextxy(401, 651, "R(x) : ");
+				setcolor(WHITE);
+				outtextxy(441, 651, "Secondo polinomio");
+
+				funzione = getchg();
+
+				cleardevice();
+				ShowWindow(GetConsoleWindow(), SW_SHOW);
+				closegraph();
+				system("cls");
+				if (funzione != 'i' && funzione != '+' && funzione != '-')
+				{
+					break;
+				}
+
+			} while (true);
 		}
 		else if (opz == '9')
 		{
@@ -1181,7 +1324,3 @@ int main()
 
 	return 0;
 }
-
-
-
-
