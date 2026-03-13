@@ -28,7 +28,7 @@ int main()
 	cout << "\033[3mCon questo software puoi:\033[0m\n\n";
 
 	cout << "  \033[1;32m[1]\033[0m Sommare due polinomi\n";
-	cout << "  \033[1;32m[2]\033[0m Calcolare la differenza\n";
+	cout << "  \033[1;32m[2]\033[0m Calcolare la differenza\n";          //menu scelte utente
 	cout << "  \033[1;32m[3]\033[0m Fare il prodotto\n";
 	cout << "  \033[1;32m[4]\033[0m Trovare gli zeri\n";
 	cout << "  \033[1;32m[5]\033[0m Calcolare l'intersezione tra polinomi\n";
@@ -1181,3 +1181,4 @@ int main()
 
 	return 0;
 }
+
