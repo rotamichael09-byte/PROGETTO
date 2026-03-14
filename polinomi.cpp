@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <conio.h>
-#include <cctype>
+#include <cctype>                      //librerie occorrenti
 #include "graphics2.h"
 #include <windows.h>
 using namespace std;
