@@ -17,7 +17,6 @@
  * ============================================================
  */
 
-
 #include <iostream>
 #include <cmath>
 #include <conio.h>
@@ -30,10 +29,10 @@ int main()
 {
 	system("cls");
 
-	 // Imposta il titolo della finestra console
+	// Imposta il titolo della finestra console
 	SetConsoleTitleA("Programma grafico polinomi");
 
-	 // Variabile usata per catturare l'input di "premi un tasto per continuare"
+	// Variabile usata per catturare l'input di "premi un tasto per continuare"
 	char carattere;
 
 	cout << "\033[1;33m";
@@ -83,7 +82,7 @@ int main()
 		pol2[i] = 0;
 	}
 
-	int numeri; // Grado del primo polinomio inserito dall'utente
+	int numeri;	 // Grado del primo polinomio inserito dall'utente
 	int numeri2; // Grado del secondo polinomio inserito dall'utente
 
 	bool uguali = true; // Flag: true se i due polinomi sono identici (usato per ottimizzare alcune operazioni)
@@ -91,9 +90,9 @@ int main()
 	cout.precision(2); // Imposta la precisione di stampa a 2 cifre decimali per i double
 
 	// ============================================================
-    // CICLO PRINCIPALE DEL PROGRAMMA
-    // Rimane attivo finché l'utente non sceglie di uscire (opz == '9')
-    // ============================================================
+	// CICLO PRINCIPALE DEL PROGRAMMA
+	// Rimane attivo finché l'utente non sceglie di uscire (opz == '9')
+	// ============================================================
 
 	while (true)
 	{
@@ -144,8 +143,7 @@ int main()
 			cout << "\n\n\033[1m\033[3m";
 
 			// Acquisizione dei coefficienti del PRIMO polinomio
-            // Vengono richiesti dal grado più alto fino al termine noto
-
+			// Vengono richiesti dal grado più alto fino al termine noto
 
 			for (int i = numeri; i >= 0; i--)
 			{
@@ -237,7 +235,7 @@ int main()
 			}
 
 			// Verifica se i due polinomi sono identici confrontando
-            // tutti i coefficienti uno per uno
+			// tutti i coefficienti uno per uno
 
 			for (int i = 3; i >= 0; i--)
 			{
@@ -249,8 +247,8 @@ int main()
 			cout << "\n\n\n\033[31mP(x) \033[0m: ";
 
 			// Stampa riepilogativa dei due polinomi inseriti
-            // Vengono omessi i termini con coefficiente nullo
-            // Il segno '+' viene aggiunto esplicitamente per i positivi
+			// Vengono omessi i termini con coefficiente nullo
+			// Il segno '+' viene aggiunto esplicitamente per i positivi
 
 			for (int i = numeri; i >= 0; i--)
 			{
@@ -320,8 +318,8 @@ int main()
 		}
 
 		// ============================================================
-        // MENU PRINCIPALE DELLE OPERAZIONI
-        // ============================================================
+		// MENU PRINCIPALE DELLE OPERAZIONI
+		// ============================================================
 
 		cout << "\033[1;33m";
 		cout << " __  __ _____ _   _ _   _ " << endl;
@@ -334,7 +332,7 @@ int main()
 		char opz; // Carattere che identifica l'operazione scelta dall'utente
 
 		// Array per il risultato delle operazioni (somma, differenza, prodotto).
-        // Ha dimensione 7 perché il prodotto di due polinomi di grado 3 può arrivare a grado 6.
+		// Ha dimensione 7 perché il prodotto di due polinomi di grado 3 può arrivare a grado 6.
 		double polfine[7];
 		for (int i = 6; i >= 0; i--)
 		{
@@ -373,8 +371,8 @@ int main()
 		if (opz == '0')
 
 		// ============================================================
-        // OPZIONE 0 : Reinserimento dei polinomi
-        // ============================================================
+		// OPZIONE 0 : Reinserimento dei polinomi
+		// ============================================================
 
 		{
 			primo = true; // Forza il rientro nel blocco di inserimento
@@ -384,9 +382,9 @@ int main()
 		else if (opz == '1')
 
 		// ============================================================
-        // OPZIONE 1 : SOMMA  P(x) + R(x)
-        // I coefficienti vengono sommati termine per termine (stessa potenza)
-        // ============================================================
+		// OPZIONE 1 : SOMMA  P(x) + R(x)
+		// I coefficienti vengono sommati termine per termine (stessa potenza)
+		// ============================================================
 
 		{
 			cout << "\033[1;33m";
@@ -514,9 +512,9 @@ int main()
 		else if (opz == '2')
 
 		// ============================================================
-        // OPZIONE 2 : DIFFERENZA  P(x) - R(x)
-        // Analoga alla somma ma sottrae i coefficienti di R(x) da quelli di P(x)
-        // ============================================================
+		// OPZIONE 2 : DIFFERENZA  P(x) - R(x)
+		// Analoga alla somma ma sottrae i coefficienti di R(x) da quelli di P(x)
+		// ============================================================
 
 		{
 			cout << "\033[1;33m";
@@ -645,11 +643,11 @@ int main()
 		if (opz == '3')
 
 		// ============================================================
-        // OPZIONE 3 : PRODOTTO  P(x) * R(x)
-        // Implementa la moltiplicazione polinomiale tramite doppio ciclo:
-        // ogni coppia di monomi (pol1[i], pol2[j]) contribuisce al termine
-        // di grado i+j del risultato con il prodotto dei rispettivi coefficienti.
-        // ============================================================
+		// OPZIONE 3 : PRODOTTO  P(x) * R(x)
+		// Implementa la moltiplicazione polinomiale tramite doppio ciclo:
+		// ogni coppia di monomi (pol1[i], pol2[j]) contribuisce al termine
+		// di grado i+j del risultato con il prodotto dei rispettivi coefficienti.
+		// ============================================================
 
 		{
 			cout << "\033[1;33m";
@@ -661,7 +659,7 @@ int main()
 			cout << "\n\033[0m=================================================\n\n";
 
 			// Moltiplicazione polinomiale: polfine[i+j] += pol1[i] * pol2[j]
-            // Il grado risultante può arrivare a 3+3 = 6, da cui la dimensione 7 di polfine
+			// Il grado risultante può arrivare a 3+3 = 6, da cui la dimensione 7 di polfine
 			for (int i = 3; i >= 0; i--)
 			{
 				for (int j = 3; j >= 0; j--)
@@ -781,23 +779,23 @@ int main()
 		else if (opz == '4')
 
 		// ============================================================
-        // OPZIONE 4 : ZERI (RADICI) dei due polinomi
-        //
-        // Algoritmo utilizzato in base al grado:
-        //   Grado 1 : x = -termine_noto / coefficiente_x
+		// OPZIONE 4 : ZERI (RADICI) dei due polinomi
+		//
+		// Algoritmo utilizzato in base al grado:
+		//   Grado 1 : x = -termine_noto / coefficiente_x
 		//             x = 0
-        //   Grado 2 : formula quadratica  x = (-b ± √Δ) / (2a)
-        //             con Δ = b² - 4ac
-        //             Δ < 0  → nessuna soluzione reale
-        //             Δ >= 0 → due soluzioni reali (coincidenti se Δ=0)
-		//             con x² + x 
+		//   Grado 2 : formula quadratica  x = (-b ± √Δ) / (2a)
+		//             con Δ = b² - 4ac
+		//             Δ < 0  → nessuna soluzione reale
+		//             Δ >= 0 → due soluzioni reali (coincidenti se Δ=0)
+		//             con x² + x
 		//             x ( x + n ) → x = 0 & x = -termine_noto / coefficiente_x
-		//             con x² + n 
+		//             con x² + n
 		//             n < 0 → impossibile
 		//             n >= 0 → radice_quadrata di -termine_noto
-		              
-        //   Grado 3 : riconosciuto ma non risolto analiticamente
-        // ============================================================
+
+		//   Grado 3 : riconosciuto ma non risolto analiticamente
+		// ============================================================
 
 		{
 			cout << "\033[1;33m";
@@ -874,7 +872,7 @@ int main()
 
 			cout << "\n\n\033[0m------------------------------------\n\nZeri di \033[31mP(x)\033[0m:\n\033[32m";
 
-			 // --- Calcolo zeri di P(x) ---
+			// --- Calcolo zeri di P(x) ---
 			if (pol1[3] != 0)
 			{
 				// Il programma non gestisce analiticamente il caso cubico
@@ -897,7 +895,7 @@ int main()
 					}
 					else
 					{
-						 // Forma: a*x + b = 0  →  x = -b/a
+						// Forma: a*x + b = 0  →  x = -b/a
 						cout << " X : " << (pol1[0] * -1) / pol1[1];
 					}
 				}
@@ -919,7 +917,7 @@ int main()
 						}
 						else if (delta >= 0)
 						{
-							 // Formula : x = (-b ± √Δ) / (2a)
+							// Formula : x = (-b ± √Δ) / (2a)
 							cout << "X1 : " << ((pol1[1] * -1) + sqrt(delta)) / (pol1[2] * 2);
 							cout << "\nX2 : " << ((pol1[1] * -1) - sqrt(delta)) / (pol1[2] * 2);
 						}
@@ -932,7 +930,7 @@ int main()
 						cout << "\nX2 : " << (pol1[1] * -1) / pol1[2];
 					}
 
-					 // Forma: ax² + c = 0  →  x² = -c/a
+					// Forma: ax² + c = 0  →  x² = -c/a
 					else if (pol1[0] != 0 && pol1[1] == 0 && pol1[2] != 0)
 					{
 						if (pol1[0] * -1 < 0)
@@ -1045,13 +1043,13 @@ int main()
 		else if (opz == '5')
 
 		// ============================================================
-        // OPZIONE 5 : INTERSEZIONI tra P(x) e R(x)
-        //
-        // I punti di intersezione si trovano risolvendo P(x) = R(x),
-        // ovvero calcolando gli zeri di D(x) = P(x) - R(x).
-        // Una volta trovate le ascisse x, le ordinate y si ricavano
-        // sostituendo x in P(x).
-        // ============================================================
+		// OPZIONE 5 : INTERSEZIONI tra P(x) e R(x)
+		//
+		// I punti di intersezione si trovano risolvendo P(x) = R(x),
+		// ovvero calcolando gli zeri di D(x) = P(x) - R(x).
+		// Una volta trovate le ascisse x, le ordinate y si ricavano
+		// sostituendo x in P(x).
+		// ============================================================
 
 		{
 			cout << "\033[1;33m";
@@ -1154,7 +1152,7 @@ int main()
 					// Caso cubico: non gestito analiticamente
 					cout << "Polinomio di terzo grado";
 				}
- 
+
 				// --- Calcolo zeri di D(x) con la stessa logica usata per P(x) ---
 				else if (polfine[3] == 0)
 				{
@@ -1256,28 +1254,31 @@ int main()
 		else if (opz == '6')
 
 		// ============================================================
-        // OPZIONE 6 : GRAFICO
-        //
-        // Apre una finestra grafica (601×702 pixel) e disegna:
-        //   - Assi cartesiani con tacche di scala
-        //   - P(x) e R(x) come sequenze di cerchi campionati ogni 0.5 unità
-        //     nell'intervallo [-5, 5]
-        //   - Legenda colorata in basso
-        //
-        // Controlli da tastiera nella finestra grafica:
-        //   '+' → aumenta la scala di 5 unità (zoom out matematico)
-        //   '-' → diminuisce la scala di 5 unità (zoom in matematico)
-        //   'i' → accede alla pagina di personalizzazione colori
-        //   qualsiasi altro tasto → chiude la finestra e torna al menu
-        // ============================================================
+		// OPZIONE 6 : GRAFICO
+		//
+		// Apre una finestra grafica (601×702 pixel) e disegna:
+		//   - Assi cartesiani con tacche di scala
+		//   - P(x) e R(x) come sequenze di cerchi campionati ogni 0.5 unità
+		//     nell'intervallo [-5, 5]
+		//   - Legenda colorata in basso
+		//
+		// Controlli da tastiera nella finestra grafica:
+		//   '+' → aumenta la scala di 5 unità (zoom out matematico)
+		//   '-' → diminuisce la scala di 5 unità (zoom in matematico)
+		//   'i' → accede alla pagina di personalizzazione colori
+		//   qualsiasi altro tasto → chiude la finestra e torna al menu
+		// ============================================================
 
 		{
 			bool personalizzazione = true; // true = mostra la pagina di scelta colori
 			char funzione;
 			bool uni = true; // true = prima apertura: imposta unita = 20 (valore di default)
-			char col1; // Colore scelto per P(x)
-			char col2; // Colore scelto per R(x)
-			int unita; // Pixel per unità sull'asse (scala del grafico)
+			char col1;		 // Colore scelto per P(x)
+			char col2;		 // Colore scelto per R(x)
+			int unita;		 // Pixel per unità sull'asse (scala del grafico)
+			string poli1 = "Primo polinomio : ";
+			string poli2 = "Secondo polinomio : ";
+			bool frase = true;
 
 			do
 			{
@@ -1291,9 +1292,9 @@ int main()
 				{
 					cout << "Pagina formattazione grafico : \n\n";
 					cout << "  \033[1;31m[r]\033[0m ROSSO\n";
-		            cout << "  \033[1;33m[y]\033[0m GIALLO\n";
-		            cout << "  \033[1;32m[g]\033[0m VERDE\n";
-	            	cout << "  \033[1;34m[b]\033[0m BLU\n\n";
+					cout << "  \033[1;33m[y]\033[0m GIALLO\n";
+					cout << "  \033[1;32m[g]\033[0m VERDE\n";
+					cout << "  \033[1;34m[b]\033[0m BLU\n\n";
 					do
 					{
 						// Acquisisce il colore del primo polinomio con validazione
@@ -1307,12 +1308,12 @@ int main()
 						}
 
 					} while (col1 != 'r' && col1 != 'y' && col1 != 'g' && col1 != 'b');
-                     cout << "\n\n";
+					cout << "\n\n";
 
 					do
 					{
 						// Acquisisce il colore del secondo polinomio:
-                        // deve essere valido E diverso dal primo per distinguerli visivamente
+						// deve essere valido E diverso dal primo per distinguerli visivamente
 						cout << "\033[1m\033[3mInserisci il colore del secondo polinomio : ";
 						col2 = getch();
 						cout << col2;
@@ -1340,9 +1341,9 @@ int main()
 				}
 
 				// Gestione della scala:
-                // Prima apertura → valore di default 20 px/unità
-                // '+' → +5 px/unità (fino a max 35)
-                // '-' → -5 px/unità (fino a min 15, cioè > 10)
+				// Prima apertura → valore di default 20 px/unità
+				// '+' → +5 px/unità (fino a max 35)
+				// '-' → -5 px/unità (fino a min 15, cioè > 10)
 				if (uni)
 				{
 					unita = 20;
@@ -1381,7 +1382,7 @@ int main()
 					line(301 - 5, 301 - i, 301 + 5, 301 - i);
 				}
 
-				double cy = 0; // Valore calcolato di P(x) per il punto corrente
+				double cy = 0;	// Valore calcolato di P(x) per il punto corrente
 				double cy2 = 0; // Valore calcolato di R(x) per il punto corrente
 
 				// Campionamento e disegno dei punti ogni 0.5 unità nell'intervallo [-5, 5]
@@ -1390,7 +1391,7 @@ int main()
 
 					cy = 0;
 					cy2 = 0;
- 
+
 					// calcolo della y usando i valori del range [-5, 5]
 					for (int j = 3; j >= 1; j--)
 					{
@@ -1399,15 +1400,15 @@ int main()
 					cy += pol1[0];
 
 					// Conversione coordinate matematiche → pixel:
-                    // x_pixel = centro_x + x_matematico * scala
-                    // y_pixel = centro_y - y_matematico * scala  (asse Y invertito)
+					// x_pixel = centro_x + x_matematico * scala
+					// y_pixel = centro_y - y_matematico * scala  (asse Y invertito)
 					int x = 301 + (i * unita);
 					int y = 301 - (cy * unita);
 
 					// Disegna il punto di P(x) solo se rientra nell'area del grafico
 					if (x >= 0 && x <= 601 && y >= 0 && y <= 601)
 					{
-						 // Imposta il colore scelto per P(x)
+						// Imposta il colore scelto per P(x)
 						if (col1 == 'r')
 						{
 							setcolor(RED);
@@ -1437,7 +1438,7 @@ int main()
 					x = 301 + (i * unita);
 					y = 301 - (cy2 * unita);
 
-					 // Disegna il punto di R(x) solo se rientra nell'area del grafico
+					// Disegna il punto di R(x) solo se rientra nell'area del grafico
 					if (x >= 0 && x <= 601 && y >= 0 && y <= 601)
 					{
 						// Imposta il colore scelto per R(x)
@@ -1461,6 +1462,125 @@ int main()
 					}
 				}
 
+				// Creazione del polinomio in formato string per aggiungerlo al grafico
+				while (frase)
+				{
+					string num;
+
+					for (int i = numeri; i >= 0; i--)
+					{
+						// Se tutti i coefficienti del polinomio sono 0, imposto la stringa a "0" e esco
+						if (pol1[0] == 0 && pol1[1] == 0 && pol1[2] == 0 && pol1[3] == 0)
+						{
+							poli1 = "0";
+							break;
+						}
+
+						// Eseguo tutto solo se il coefficiente non è 0
+						if (pol1[i] != 0)
+						{
+
+							// Se il coefficiente è positivo, aggiungo un "+" davanti
+							if (pol1[i] > 0)
+							{
+								poli1 += " +";
+							}
+
+							// Converto il coefficiente in stringa
+							num = to_string(pol1[i]);
+							// Trovo la posizione del punto decimale
+							int pos = num.find('.');
+
+							// Limito la stringa a massimo 2 cifre decimali
+							num.erase(pos + 3);
+
+							// Ciclo per cercare il primo zero dopo il punto
+							int idx;
+							for (idx = pos + 1; idx < num.size(); idx++)
+							{
+								if (num[idx] == '0')
+									break;
+							}
+							// Cancello tutto dopo il primo zero trovato
+							num.erase(idx);
+
+							// Se rimane solo il punto, lo elimino
+							if (pos + 1 == num.size())
+							{
+								num.erase(pos, 1);
+							};
+
+							// Aggiungo alla stringa del polinomio
+							if (i != 0)
+							{
+								poli1 += num + "x^" + to_string(i) + " ";
+							}
+							else
+							{
+								poli1 += num;
+							}
+						}
+					}
+
+					for (int i = numeri2; i >= 0; i--)
+					{
+						// Se tutti i coefficienti del secondo polinomio sono 0
+						if (pol2[0] == 0 && pol2[1] == 0 && pol2[2] == 0 && pol2[3] == 0)
+						{
+							poli2 = "0";
+							break;
+						}
+
+						// Eseguo tutto solo se il coefficiente non è 0
+						if (pol2[i] != 0)
+						{
+
+							// Se il coefficiente è positivo, aggiungo un "+"
+							if (pol2[i] > 0)
+							{
+								poli2 += "+";
+							}
+
+							// Converto il coefficiente in stringa
+							num = to_string(pol2[i]);
+							// Trovo il punto decimale
+							int pos = num.find('.');
+
+							// Limito a massimo 2 cifre decimali
+							num.erase(pos + 3);
+
+							// Ciclo per cercare il primo zero dopo il punto
+							int idx;
+							for (idx = pos + 1; idx < num.size(); idx++)
+							{
+								if (num[idx] == '0')
+									break;
+							}
+							// Cancello tutto dopo il primo zero trovato
+							num.erase(idx);
+
+							// Se rimane solo il punto, lo elimino
+							if (pos + 1 == num.size())
+							{
+								num.erase(pos, 1);
+							};
+
+							// Aggiungo alla stringa del polinomio
+							if (i != 0)
+							{
+								poli2 += num + "x^" + to_string(i) + " ";
+							}
+							else
+							{
+								poli2 += num;
+							}
+						}
+					}
+
+					// Segnalo che la frase è stata creata
+					frase = false;
+				}
+
 				settextstyle(2, 0, 5);
 
 				// Etichetta P(x) con il suo colore
@@ -1480,11 +1600,11 @@ int main()
 				{
 					setcolor(BLUE);
 				}
-				outtextxy(21, 651, "P(x) : ");
+				outtextxy(21, 621, "P(x) : ");
 				setcolor(WHITE);
-				outtextxy(61, 651, "Primo polinomio");
+				outtextxy(71, 621, poli1.c_str());
 
-				 // Etichetta R(x) con il suo colore
+				// Etichetta R(x) con il suo colore
 				if (col2 == 'r')
 				{
 					setcolor(RED);
@@ -1501,9 +1621,9 @@ int main()
 				{
 					setcolor(BLUE);
 				}
-				outtextxy(401, 651, "R(x) : ");
+				outtextxy(21, 661, "R(x) : ");
 				setcolor(WHITE);
-				outtextxy(441, 651, "Secondo polinomio");
+				outtextxy(71, 661, poli2.c_str());
 
 				// Attende un tasto nella finestra grafica per decidere l'azione successiva
 				funzione = getchg();
@@ -1525,9 +1645,9 @@ int main()
 		else if (opz == '9')
 
 		// ============================================================
-        // OPZIONE 9 : USCITA DAL PROGRAMMA
-        // Chiede conferma prima di terminare
-        // ============================================================
+		// OPZIONE 9 : USCITA DAL PROGRAMMA
+		// Chiede conferma prima di terminare
+		// ============================================================
 
 		{
 			char sicuro;
@@ -1549,7 +1669,7 @@ int main()
 			if (sicuro == 's')
 			{
 				system("cls");
-				break; 
+				break;
 				// Esce dal ciclo principale → fine del programma
 			}
 			else
@@ -1560,7 +1680,7 @@ int main()
 			}
 		}
 	}
-	
+
 	cout << "\033[1;33m";
 	cout << " _____ ___ _   _ _____ " << endl;
 	cout << "|  ___|_ _| \\ | | ____|" << endl;
