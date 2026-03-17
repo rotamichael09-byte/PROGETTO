@@ -340,6 +340,7 @@ int main()
 		}
 
 		cout << "\n\n\033[1m\033[3mCosa vuoi fare oggi con i tuoi polinomi?\033[0m\n\n";
+		cout << "  \033[1;32m[0]\033[0m INSERIMENTO \t-> permette di cambiare i polinomi\n";
 		cout << "  \033[1;32m[1]\033[0m SOMMA \t\t-> somma tra P(x) + R(x)\n";
 		cout << "  \033[1;32m[2]\033[0m DIFFERENZA \t-> Differenza tra P(x) - R(x)\n";
 		cout << "  \033[1;32m[3]\033[0m PRODOTTO \t\t-> Prodotto tra P(x) * R(x)\n";
@@ -362,7 +363,7 @@ int main()
 				break; // Input valido
 			}
 
-			cout << "  \033[31mInput non valido! Usa solo 1-6 oppure 9.\033[0m\n\n";
+			cout << "  \033[31mInput non valido! Usa solo 0-6 oppure 9.\033[0m\n\n";
 
 		} while (true);
 
@@ -1293,7 +1294,7 @@ int main()
 					cout << "Pagina formattazione grafico : \n\n";
 					cout << "  \033[1;31m[r]\033[0m ROSSO\n";
 					cout << "  \033[1;33m[y]\033[0m GIALLO\n";
-					cout << "  \033[1;32m[g]\033[0m VERDE\n";
+					cout << "  \033[1;36m[c]\033[0m CIANO\n";
 					cout << "  \033[1;34m[b]\033[0m BLU\n\n";
 					do
 					{
@@ -1302,12 +1303,12 @@ int main()
 						col1 = getch();
 						cout << col1;
 
-						if (col1 != 'r' && col1 != 'y' && col1 != 'g' && col1 != 'b')
+						if (col1 != 'r' && col1 != 'y' && col1 != 'c' && col1 != 'b')
 						{
 							cout << "  \033[31mErrore: colore non valido!\033[0m" << endl;
 						}
 
-					} while (col1 != 'r' && col1 != 'y' && col1 != 'g' && col1 != 'b');
+					} while (col1 != 'r' && col1 != 'y' && col1 != 'c' && col1 != 'b');
 					cout << "\n\n";
 
 					do
@@ -1318,7 +1319,7 @@ int main()
 						col2 = getch();
 						cout << col2;
 
-						if (col2 != 'r' && col2 != 'y' && col2 != 'g' && col2 != 'b')
+						if (col2 != 'r' && col2 != 'y' && col2 != 'c' && col2 != 'b')
 						{
 							cout << "  \033[31mErrore: colore non valido!\033[0m" << endl;
 						}
@@ -1327,7 +1328,7 @@ int main()
 							cout << "  \033[31mErrore: il secondo colore non puo' essere uguale al primo!\033[0m" << endl;
 						}
 
-					} while ((col2 != 'r' && col2 != 'y' && col2 != 'g' && col2 != 'b') || col2 == col1);
+					} while ((col2 != 'r' && col2 != 'y' && col2 != 'c' && col2 != 'b') || col2 == col1);
 
 					// Riepilogo delle scelte colore
 					cout << "\n\n\033[32m\033[1m\033[3mScelte finali\033[0m:" << endl;
@@ -1342,7 +1343,7 @@ int main()
 
 				// Gestione della scala:
 				// Prima apertura → valore di default 20 px/unità
-				// '+' → +5 px/unità (fino a max 35)
+				// '+' → +5 px/unità (fino a max 55)
 				// '-' → -5 px/unità (fino a min 15, cioè > 10)
 				if (uni)
 				{
@@ -1350,7 +1351,7 @@ int main()
 					uni = false;
 				}
 
-				else if (funzione == '+' && unita + 5 <= 35)
+				else if (funzione == '+' && unita + 5 <= 55)
 				{
 					unita += 5;
 				}
@@ -1382,8 +1383,19 @@ int main()
 					line(301 - 5, 301 - i, 301 + 5, 301 - i);
 				}
 
+				outtextxy( 320 , 10 , "Y" );
+				outtextxy( 575 , 320 , "X");
+				line ( 400 , 601 , 400 , 702 );
+				outtextxy( 420 , 620 , "i : impostazioni");
+				outtextxy( 420 , 640 , "+ : zoom in ");
+				outtextxy( 420 , 660 , "- : zoom out");
+
 				double cy = 0;	// Valore calcolato di P(x) per il punto corrente
 				double cy2 = 0; // Valore calcolato di R(x) per il punto corrente
+				double x1pre = 0;
+				double y1pre = 0;
+				double x2pre = 0;
+				double y2pre = 0; 
 
 				// Campionamento e disegno dei punti ogni 0.5 unità nell'intervallo [-5, 5]
 				for (double i = -5; i <= 5; i += 0.5)
@@ -1402,12 +1414,11 @@ int main()
 					// Conversione coordinate matematiche → pixel:
 					// x_pixel = centro_x + x_matematico * scala
 					// y_pixel = centro_y - y_matematico * scala  (asse Y invertito)
-					int x = 301 + (i * unita);
-					int y = 301 - (cy * unita);
+					int x1 = 301 + (i * unita);
+					int y1 = 301 - (cy * unita);
 
 					// Disegna il punto di P(x) solo se rientra nell'area del grafico
-					if (x >= 0 && x <= 601 && y >= 0 && y <= 601)
-					{
+					
 						// Imposta il colore scelto per P(x)
 						if (col1 == 'r')
 						{
@@ -1417,16 +1428,21 @@ int main()
 						{
 							setcolor(YELLOW);
 						}
-						else if (col1 == 'g')
+						else if (col1 == 'c')
 						{
-							setcolor(GREEN);
+							setcolor(CYAN);
 						}
 						else if (col1 == 'b')
 						{
 							setcolor(BLUE);
 						}
-						circle(x, y, 3); // Disegna un cerchietto di raggio 3 pixel
-					}
+						if ( x1pre != 0 && y1pre != 0 ) {
+							line( x1pre , y1pre , x1 ,y1 ); // stampa una linea usando le cordinate del punto precedente
+						}
+					
+
+					x1pre = x1;
+					y1pre = y1;
 
 					// calcolo della y usando i valori del range [-5, 5]
 					for (int j = 3; j >= 1; j--)
@@ -1435,12 +1451,18 @@ int main()
 					}
 					cy2 += pol2[0];
 
-					x = 301 + (i * unita);
-					y = 301 - (cy2 * unita);
+					int x2 = 301 + (i * unita);
+					int y2 = 301 - (cy2 * unita);
 
 					// Disegna il punto di R(x) solo se rientra nell'area del grafico
-					if (x >= 0 && x <= 601 && y >= 0 && y <= 601)
-					{
+					
+						// i punti di intersezione sono segnati in verde e sono piu grossi dei normali
+						if ( x1 == x2 && y1 == y2 ) {
+							setcolor(GREEN);
+							circle(x2, y2, 3);
+						}
+
+						
 						// Imposta il colore scelto per R(x)
 						if (col2 == 'r')
 						{
@@ -1450,16 +1472,22 @@ int main()
 						{
 							setcolor(YELLOW);
 						}
-						else if (col2 == 'g')
+						else if (col2 == 'c')
 						{
-							setcolor(GREEN);
+							setcolor(CYAN);
 						}
 						else if (col2 == 'b')
 						{
 							setcolor(BLUE);
 						}
-						circle(x, y, 3);
-					}
+						if ( x2pre != 0 && y2pre != 0 ) {
+							line( x2pre , y2pre , x2 ,y2 );
+						}
+					
+					
+
+					x2pre = x2;
+					y2pre = y2;
 				}
 
 				// Creazione del polinomio in formato string per aggiungerlo al grafico
@@ -1592,9 +1620,9 @@ int main()
 				{
 					setcolor(YELLOW);
 				}
-				else if (col1 == 'g')
+				else if (col1 == 'c')
 				{
-					setcolor(GREEN);
+					setcolor(CYAN);
 				}
 				else if (col1 == 'b')
 				{
@@ -1613,9 +1641,9 @@ int main()
 				{
 					setcolor(YELLOW);
 				}
-				else if (col2 == 'g')
+				else if (col2 == 'c')
 				{
-					setcolor(GREEN);
+					setcolor(CYAN);
 				}
 				else if (col2 == 'b')
 				{
