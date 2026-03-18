@@ -2,7 +2,7 @@
  * ============================================================
  *  PROGRAMMA GRAFICO PER LA GESTIONE DI POLINOMI
  * ============================================================
- *  Autori : ROTA MICHAEL, COLOMBO FRANCESCO, SPINELLI FILIPPO
+ *  Autori : ROTA MICHAEL, SPINELLI FILIPPO, COLOMBO FRANCESCO
  *
  *  Descrizione:
  *    Il programma permette all'utente di inserire due polinomi
@@ -61,8 +61,8 @@ int main()
 	cout << "\033[1;35mMembri del gruppo:\033[0m\n\n";
 
 	cout << "  \033[37mROTA MICHAEL\033[0m\n";
-	cout << "  \033[37mCOLOMBO FRANCESCO\033[0m\n";
 	cout << "  \033[37mSPINELLI FILIPPO\033[0m\n\n";
+	cout << "  \033[37mCOLOMBO FRANCESCO\033[0m\n";
 	cout << "\033[1;3;4m\nPremi un tasto per continuare\033[0m . . .";
 
 	// Attende la pressione di un qualsiasi tasto per procedere
