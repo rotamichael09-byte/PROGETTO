@@ -1219,7 +1219,7 @@ int main()
 						{
 							if (polfine[0] * -1 < 0)
 							{
-								cout << "\0033[31mNon ci sono punti di intersezione\033[0m";
+								cout << "\033[31mNon ci sono punti di intersezione\033[0m";
 							}
 
 							else
@@ -1234,7 +1234,7 @@ int main()
 								cout << "2( X ; Y ) == ( \033[32m" << x2 << "\033[0m ; \033[32m" << y2 << " \033[0m )";
 							}
 						}
-						else if (pol2[2] != 0 && polfine[1] == 0 && polfine[0] == 0)
+						else if (polfine[2] != 0 && polfine[1] == 0 && polfine[0] == 0)
 						{
 							x1 = 0;
 							y1 = (pol1[2] * pow(x1, 2)) + (pol1[1] * x1) + pol1[0]; // sostituisce le x con il valore trovato e ne fa la somma
@@ -1383,19 +1383,30 @@ int main()
 					line(301 - 5, 301 - i, 301 + 5, 301 - i);
 				}
 
-				outtextxy( 320 , 10 , "Y" );
-				outtextxy( 575 , 320 , "X");
-				line ( 400 , 601 , 400 , 702 );
-				outtextxy( 420 , 620 , "i : impostazioni");
-				outtextxy( 420 , 640 , "+ : zoom in ");
-				outtextxy( 420 , 660 , "- : zoom out");
+				if (unita == 15)
+				{
+					settextstyle(2, 0, 5);
+					outtextxy(560, 10, "MIN");
+				}
+				else if (unita == 55)
+				{
+					settextstyle(2, 0, 5);
+					outtextxy(560, 10, "MAX");
+				}
+
+				outtextxy(320, 10, "Y");
+				outtextxy(575, 320, "X");
+				line(400, 601, 400, 702);
+				outtextxy(420, 620, "i : impostazioni");
+				outtextxy(420, 640, "+ : zoom in ");
+				outtextxy(420, 660, "- : zoom out");
 
 				double cy = 0;	// Valore calcolato di P(x) per il punto corrente
 				double cy2 = 0; // Valore calcolato di R(x) per il punto corrente
 				double x1pre = 0;
 				double y1pre = 0;
 				double x2pre = 0;
-				double y2pre = 0; 
+				double y2pre = 0;
 
 				// Campionamento e disegno dei punti ogni 0.5 unità nell'intervallo [-5, 5]
 				for (double i = -5; i <= 5; i += 0.5)
@@ -1418,28 +1429,28 @@ int main()
 					int y1 = 301 - (cy * unita);
 
 					// Disegna il punto di P(x) solo se rientra nell'area del grafico
-					
-						// Imposta il colore scelto per P(x)
-						if (col1 == 'r')
-						{
-							setcolor(RED);
-						}
-						else if (col1 == 'y')
-						{
-							setcolor(YELLOW);
-						}
-						else if (col1 == 'c')
-						{
-							setcolor(CYAN);
-						}
-						else if (col1 == 'b')
-						{
-							setcolor(BLUE);
-						}
-						if ( x1pre != 0 && y1pre != 0 ) {
-							line( x1pre , y1pre , x1 ,y1 ); // stampa una linea usando le cordinate del punto precedente
-						}
-					
+
+					// Imposta il colore scelto per P(x)
+					if (col1 == 'r')
+					{
+						setcolor(RED);
+					}
+					else if (col1 == 'y')
+					{
+						setcolor(YELLOW);
+					}
+					else if (col1 == 'c')
+					{
+						setcolor(CYAN);
+					}
+					else if (col1 == 'b')
+					{
+						setcolor(BLUE);
+					}
+					if (x1pre != 0 && y1pre != 0)
+					{
+						line(x1pre, y1pre, x1, y1); // stampa una linea usando le cordinate del punto precedente
+					}
 
 					x1pre = x1;
 					y1pre = y1;
@@ -1455,36 +1466,35 @@ int main()
 					int y2 = 301 - (cy2 * unita);
 
 					// Disegna il punto di R(x) solo se rientra nell'area del grafico
-					
-						// i punti di intersezione sono segnati in verde e sono piu grossi dei normali
-						if ( x1 == x2 && y1 == y2 ) {
-							setcolor(GREEN);
-							circle(x2, y2, 3);
-						}
 
-						
-						// Imposta il colore scelto per R(x)
-						if (col2 == 'r')
-						{
-							setcolor(RED);
-						}
-						else if (col2 == 'y')
-						{
-							setcolor(YELLOW);
-						}
-						else if (col2 == 'c')
-						{
-							setcolor(CYAN);
-						}
-						else if (col2 == 'b')
-						{
-							setcolor(BLUE);
-						}
-						if ( x2pre != 0 && y2pre != 0 ) {
-							line( x2pre , y2pre , x2 ,y2 );
-						}
-					
-					
+					// i punti di intersezione sono segnati in verde e sono piu grossi dei normali
+					if (x1 == x2 && y1 == y2)
+					{
+						setcolor(GREEN);
+						circle(x2, y2, 3);
+					}
+
+					// Imposta il colore scelto per R(x)
+					if (col2 == 'r')
+					{
+						setcolor(RED);
+					}
+					else if (col2 == 'y')
+					{
+						setcolor(YELLOW);
+					}
+					else if (col2 == 'c')
+					{
+						setcolor(CYAN);
+					}
+					else if (col2 == 'b')
+					{
+						setcolor(BLUE);
+					}
+					if (x2pre != 0 && y2pre != 0)
+					{
+						line(x2pre, y2pre, x2, y2);
+					}
 
 					x2pre = x2;
 					y2pre = y2;
