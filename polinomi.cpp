@@ -525,7 +525,7 @@ int main()
 		    cout << "| |_| || ||  _| |  _| | |___|  _ <| |___| |\\  | / /_  / ___ \\ \n";
 		    cout << "|____/|___|_|   |_|   |_____|_| \\_\\_____|_| \\_|/____|/_/   \\_\\\n";
 		    cout << "\n\033[0m=================================================================\n\n";
-
+			
 			// Differenza coefficiente per coefficiente (a[i] - b[i])
 			for (int i = 3; i >= 0; i--)
 			{
@@ -1151,7 +1151,7 @@ int main()
 				if (polfine[3] != 0)
 				{
 					// Caso cubico: non gestito analiticamente
-					cout << "Polinomio di terzo grado";
+					cout << "\033[31mPolinomio di terzo grado";
 				}
 
 				// --- Calcolo zeri di D(x) con la stessa logica usata per P(x) ---
