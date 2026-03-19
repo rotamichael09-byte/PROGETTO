@@ -328,7 +328,7 @@ int main()
 		cout << "| |  | | |___| |\\  | |_| |" << endl;
 		cout << "|_|  |_|_____|_| \\_|\\___/ " << endl;
 		cout << "\x1b[0m";
-
+        cout << "\033[0m========================================================================================================================\n\n";
 		char opz; // Carattere che identifica l'operazione scelta dall'utente
 
 		// Array per il risultato delle operazioni (somma, differenza, prodotto).
