@@ -61,7 +61,7 @@ int main()
 	cout << "\033[1;35mMembri del gruppo:\033[0m\n\n";
 
 	cout << "  \033[37mROTA MICHAEL\033[0m\n";
-	cout << "  \033[37mSPINELLI FILIPPO\033[0m\n\n";
+	cout << "  \033[37mSPINELLI FILIPPO\033[0m\n";
 	cout << "  \033[37mCOLOMBO FRANCESCO\033[0m\n";
 	cout << "\033[1;3;4m\nPremi un tasto per continuare\033[0m . . .";
 
@@ -785,15 +785,15 @@ int main()
 		// Algoritmo utilizzato in base al grado:
 		//   Grado 1 : x = -termine_noto / coefficiente_x
 		//             x = 0
-		//   Grado 2 : formula quadratica  x = (-b ± √Δ) / (2a)
-		//             con Δ = b² - 4ac
-		//             Δ < 0  → nessuna soluzione reale
-		//             Δ >= 0 → due soluzioni reali (coincidenti se Δ=0)
+		//   Grado 2 : formula quadratica  x = (-b ± v?) / (2a)
+		//             con ? = b² - 4ac
+		//             ? < 0  ? nessuna soluzione reale
+		//             ? >= 0 ? due soluzioni reali (coincidenti se ?=0)
 		//             con x² + x
-		//             x ( x + n ) → x = 0 & x = -termine_noto / coefficiente_x
+		//             x ( x + n ) ? x = 0 & x = -termine_noto / coefficiente_x
 		//             con x² + n
-		//             n < 0 → impossibile
-		//             n >= 0 → radice_quadrata di -termine_noto
+		//             n < 0 ? impossibile
+		//             n >= 0 ? radice_quadrata di -termine_noto
 
 		//   Grado 3 : riconosciuto ma non risolto analiticamente
 		// ============================================================
@@ -881,7 +881,7 @@ int main()
 			}
 			else if (pol1[3] == 0)
 			{
-				// Grado ≤ 1
+				// Grado = 1
 				if (pol1[2] == 0)
 				{
 					if (pol1[1] == 0)
@@ -891,12 +891,12 @@ int main()
 					}
 					else if (pol1[1] != 0 && pol1[0] == 0)
 					{
-						// Forma: a*x = 0  →  x = 0
+						// Forma: a*x = 0  ?  x = 0
 						cout << "X : \033[32m0\033[0m";
 					}
 					else
 					{
-						// Forma: a*x + b = 0  →  x = -b/a
+						// Forma: a*x + b = 0  ?  x = -b/a
 						cout << " X : " << (pol1[0] * -1) / pol1[1];
 					}
 				}
@@ -913,25 +913,25 @@ int main()
 						delta = pow(pol1[1], 2) - (4 * pol1[0] * pol1[2]);
 						if (delta < 0)
 						{
-							// Δ negativo → no soluzioni reali
+							// ? negativo ? no soluzioni reali
 							cout << "Non ci sono soluzioni";
 						}
 						else if (delta >= 0)
 						{
-							// Formula : x = (-b ± √Δ) / (2a)
+							// Formula : x = (-b ± v?) / (2a)
 							cout << "X1 : " << ((pol1[1] * -1) + sqrt(delta)) / (pol1[2] * 2);
 							cout << "\nX2 : " << ((pol1[1] * -1) - sqrt(delta)) / (pol1[2] * 2);
 						}
 					}
 
-					// Forma: ax² + bx = 0  →  x(ax + b) = 0  →  x=0 oppure x=-b/a
+					// Forma: ax² + bx = 0  ?  x(ax + b) = 0  ?  x=0 oppure x=-b/a
 					else if (pol1[0] == 0 && pol1[1] != 0 && pol1[2] != 0)
 					{
 						cout << "X1 : 0";
 						cout << "\nX2 : " << (pol1[1] * -1) / pol1[2];
 					}
 
-					// Forma: ax² + c = 0  →  x² = -c/a
+					// Forma: ax² + c = 0  ?  x² = -c/a
 					else if (pol1[0] != 0 && pol1[1] == 0 && pol1[2] != 0)
 					{
 						if (pol1[0] * -1 < 0)
@@ -940,7 +940,7 @@ int main()
 						}
 						else if (pol1[0] * -1 > 0)
 						{
-							// x = ± √(-c/a)
+							// x = ± v(-c/a)
 							cout << "X1 : -" << sqrt((pol1[0] * -1) / pol1[2]);
 							cout << "\nX2 : +" << sqrt((pol1[0] * -1) / pol1[2]);
 						}
@@ -948,7 +948,7 @@ int main()
 
 					else if (pol1[0] == 0 && pol1[1] == 0 && pol1[2] != 0)
 					{
-						// Forma: ax² = 0  →  x = 0 (radice doppia)
+						// Forma: ax² = 0  ?  x = 0 (radice doppia)
 						cout << "X : \033[32m0\033[0m";
 					}
 				}
@@ -1130,7 +1130,7 @@ int main()
 
 			if (uguali)
 			{
-				// Polinomi identici → infiniti punti in comune (coincidenti)
+				// Polinomi identici ? infiniti punti in comune (coincidenti)
 				cout << "\nI due polinomi sono \033[32mcoincidenti \033[0messendo uguali";
 			}
 
@@ -1264,10 +1264,10 @@ int main()
 		//   - Legenda colorata in basso
 		//
 		// Controlli da tastiera nella finestra grafica:
-		//   '+' → aumenta la scala di 5 unità (zoom out matematico)
-		//   '-' → diminuisce la scala di 5 unità (zoom in matematico)
-		//   'i' → accede alla pagina di personalizzazione colori
-		//   qualsiasi altro tasto → chiude la finestra e torna al menu
+		//   '+' ? aumenta la scala di 5 unità (zoom out matematico)
+		//   '-' ? diminuisce la scala di 5 unità (zoom in matematico)
+		//   'i' ? accede alla pagina di personalizzazione colori
+		//   qualsiasi altro tasto ? chiude la finestra e torna al menu
 		// ============================================================
 
 		{
@@ -1342,9 +1342,9 @@ int main()
 				}
 
 				// Gestione della scala:
-				// Prima apertura → valore di default 20 px/unità
-				// '+' → +5 px/unità (fino a max 55)
-				// '-' → -5 px/unità (fino a min 15, cioè > 10)
+				// Prima apertura ? valore di default 20 px/unità
+				// '+' ? +5 px/unità (fino a max 55)
+				// '-' ? -5 px/unità (fino a min 15, cioè > 10)
 				if (uni)
 				{
 					unita = 20;
@@ -1422,7 +1422,7 @@ int main()
 					}
 					cy += pol1[0];
 
-					// Conversione coordinate matematiche → pixel:
+					// Conversione coordinate matematiche ? pixel:
 					// x_pixel = centro_x + x_matematico * scala
 					// y_pixel = centro_y - y_matematico * scala  (asse Y invertito)
 					int x1 = 301 + (i * unita);
@@ -1708,7 +1708,7 @@ int main()
 			{
 				system("cls");
 				break;
-				// Esce dal ciclo principale → fine del programma
+				// Esce dal ciclo principale ? fine del programma
 			}
 			else
 			{
