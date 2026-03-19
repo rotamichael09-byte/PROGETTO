@@ -435,7 +435,7 @@ int main()
 			}
 			cout << "\n\n\033[0mPolinomio \033[33mR(x)\033[32m\n";
 
-			// Stampa R(x)
+			// Stampa di R(x)
 			for (int i = numeri2; i >= 0; i--)
 			{
 				if (pol2[i] != 0)
