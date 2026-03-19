@@ -112,7 +112,7 @@ int main()
 			cout << " | || |\\  |___) | |___|  _ < | || |  | | |___| |\\  | | || |_| |" << endl;
 			cout << "|___|_| \\_|____/|_____|_| \\_\\___|_|  |_|_____|_| \\_| |_| \\___/ " << endl;
 			cout << "\033[0m" << endl;
-            cout << "\033[0m========================================================================================================================\n\n";
+
 			do
 			{
 
@@ -204,7 +204,7 @@ int main()
 			} while (true);
 
 			cout << "\n";
-			// Acquisizione dei coefficienti del secondo polinomio
+			// Acquisizione dei coefficienti del SECONDO polinomio
 
 			for (int i = numeri2; i >= 0; i--)
 			{
@@ -328,7 +328,7 @@ int main()
 		cout << "| |  | | |___| |\\  | |_| |" << endl;
 		cout << "|_|  |_|_____|_| \\_|\\___/ " << endl;
 		cout << "\x1b[0m";
-        cout << "\033[0m========================================================================================================================\n\n";
+
 		char opz; // Carattere che identifica l'operazione scelta dall'utente
 
 		// Array per il risultato delle operazioni (somma, differenza, prodotto).
@@ -394,8 +394,8 @@ int main()
 			cout << "\\___ \\| | | | |\\/| | |\\/| | / _ \\ " << endl;
 			cout << " ___) | |_| | |  | | |  | |/ ___ \\ " << endl;
 			cout << "|____/ \\___/|_|  |_|_|  |_/_/   \\_\\" << endl;
-			cout << "\n\033[0m========================================================================================================================\n\n";
-			
+			cout << "\n\033[0m=====================================\n\n";
+
 			// Somma coefficiente per coefficiente (a[i] + b[i])
 			for (int i = 3; i >= 0; i--)
 			{
@@ -435,7 +435,7 @@ int main()
 			}
 			cout << "\n\n\033[0mPolinomio \033[33mR(x)\033[32m\n";
 
-			// Stampa di R(x)
+			// Stampa R(x)
 			for (int i = numeri2; i >= 0; i--)
 			{
 				if (pol2[i] != 0)
@@ -524,7 +524,7 @@ int main()
 		    cout << "| | | || || |_  | |_  |  _| | |_) |  _| |  \\| |  / /   / _ \\  \n";
 		    cout << "| |_| || ||  _| |  _| | |___|  _ <| |___| |\\  | / /_  / ___ \\ \n";
 		    cout << "|____/|___|_|   |_|   |_____|_| \\_\\_____|_| \\_|/____|/_/   \\_\\\n";
-		    cout << "\n\033[0m========================================================================================================================\n\n";
+		    cout << "\n\033[0m=================================================================\n\n";
 			
 			// Differenza coefficiente per coefficiente (a[i] - b[i])
 			for (int i = 3; i >= 0; i--)
@@ -657,8 +657,8 @@ int main()
 			cout << "| |_) | |_) | | | | | | | | | || |   | || | | |" << endl;
 			cout << "|  __/|  _ <| |_| | |_| | |_| || |   | || |_| |" << endl;
 			cout << "|_|   |_| \\_\\\\___/|____/ \\___/ |_|   |_| \\___/ " << endl;
-			cout << "\n\033[0m========================================================================================================================\n\n";
-			
+			cout << "\n\033[0m=================================================\n\n";
+
 			// Moltiplicazione polinomiale: polfine[i+j] += pol1[i] * pol2[j]
 			// Il grado risultante può arrivare a 3+3 = 6, da cui la dimensione 7 di polfine
 			for (int i = 3; i >= 0; i--)
@@ -805,7 +805,7 @@ int main()
 			cout << "| |_) || |\\___ \\| | | | |  | | | | / /  | | | | |  \\| |  _|  " << endl;
 			cout << "|  _ < | | ___) | |_| | |__| |_| |/ /_  | | |_| | |\\  | |___ " << endl;
 			cout << "|_| \\_\\___|____/ \\___/|_____\\___//____|___\\___/|_| \\_|_____|" << endl;
-			cout << "\n\033[0m========================================================================================================================\n\n";
+			cout << "\n\033[0m=============================================================\n\n";
 			cout << "Polinomi inseriti :\n\n\033[31mP(x) \033[0m= \033[32m";
 
 			// Stampa i polinomi inseriti come riferimento
@@ -1284,26 +1284,27 @@ int main()
 			do
 			{
 				// Se l'utente ha premuto 'i' nella finestra grafica, torna alla personalizzazione
-				if (funzione == 'i')
+				if (funzione == 'I')
 				{
 					personalizzazione = true;
 				}
 
 				while (personalizzazione)
 				{
-					cout << "\033[1;33m"; // Colore giallo
+					cout << "\033[1;33m"; 
 					cout << "  ____ ____     _     _____ ___ ____ ___  " << endl;
 					cout << " / ___|  _ \\   / \\   |  ___|_ _/ ___/ _ \\ " << endl;
 					cout << "| |  _| |_) | / _ \\  | |_   | | |  | | | |" << endl;
 					cout << "| |_| |  _ < / ___ \\ |  _|  | | |__| |_| |" << endl;
 					cout << " \\____|_| \\_/_/   \\_\\|_|   |___\\____\\___/ " << endl;
 					cout << "\033[0m==========================================\n\n";
-					
+				
 					cout << "Pagina formattazione grafico : \n\n";
-					cout << "  \033[1;31m[r]\033[0m ROSSO\n";
-					cout << "  \033[1;33m[y]\033[0m GIALLO\n";
-					cout << "  \033[1;36m[c]\033[0m CIANO\n";
-					cout << "  \033[1;34m[b]\033[0m BLU\n\n";
+					
+					cout << "  \033[1;31m[R]\033[0m ROSSO\n";
+					cout << "  \033[1;33m[Y]\033[0m GIALLO\n";
+					cout << "  \033[1;36m[C]\033[0m CIANO\n";
+					cout << "  \033[1;34m[B]\033[0m BLU\n\n";
 					do
 					{
 						// Acquisisce il colore del primo polinomio con validazione
@@ -1311,12 +1312,12 @@ int main()
 						col1 = getch();
 						cout << col1;
 
-						if (col1 != 'r' && col1 != 'y' && col1 != 'c' && col1 != 'b')
+						if (col1 != 'R' && col1 != 'Y' && col1 != 'C' && col1 != 'B')
 						{
 							cout << "  \033[31mErrore: colore non valido!\033[0m" << endl;
 						}
 
-					} while (col1 != 'r' && col1 != 'y' && col1 != 'c' && col1 != 'b');
+					} while (col1 != 'R' && col1 != 'Y' && col1 != 'C' && col1 != 'B');
 					cout << "\n\n";
 
 					do
@@ -1327,7 +1328,7 @@ int main()
 						col2 = getch();
 						cout << col2;
 
-						if (col2 != 'r' && col2 != 'y' && col2 != 'c' && col2 != 'b')
+						if (col2 != 'R' && col2 != 'Y' && col2 != 'C' && col2 != 'B')
 						{
 							cout << "  \033[31mErrore: colore non valido!\033[0m" << endl;
 						}
@@ -1336,7 +1337,7 @@ int main()
 							cout << "  \033[31mErrore: il secondo colore non puo' essere uguale al primo!\033[0m" << endl;
 						}
 
-					} while ((col2 != 'r' && col2 != 'y' && col2 != 'c' && col2 != 'b') || col2 == col1);
+					} while ((col2 != 'R' && col2 != 'Y' && col2 != 'C' && col2 != 'B') || col2 == col1);
 
 					// Riepilogo delle scelte colore
 					cout << "\n\n\033[32m\033[1m\033[3mScelte finali\033[0m:" << endl;
@@ -1359,7 +1360,7 @@ int main()
 					uni = false;
 				}
 
-				else if (funzione == '+' && unita + 5 <= 55)
+				else if (funzione == '+' && unita + 5 <= 65)
 				{
 					unita += 5;
 				}
@@ -1376,8 +1377,10 @@ int main()
 				initgraph(&GraphDriver, &GraphMode, "", 601, 702);
 
 				// Disegna gli assi cartesiani: asse X (y=301), asse Y (x=301) e bordo inferiore
+				setcolor( DARKGRAY );
 				line(0, 301, 601, 301);
 				line(301, 0, 301, 601);
+				setcolor( WHITE );
 				line(0, 601, 601, 601);
 
 				// Disegna le tacche sugli assi a intervalli di 'unita' pixel
@@ -1394,20 +1397,14 @@ int main()
 				if (unita == 15)
 				{
 					settextstyle(2, 0, 5);
-					outtextxy(560, 10, "MIN");
+					outtextxy(550, 10, "MIN");
 				}
-				else if (unita == 55)
+				else if (unita == 65)
 				{
 					settextstyle(2, 0, 5);
-					outtextxy(560, 10, "MAX");
+					outtextxy(550, 10, "MAX");
 				}
 
-				outtextxy(320, 10, "Y");
-				outtextxy(575, 320, "X");
-				line(400, 601, 400, 702);
-				outtextxy(420, 620, "i : impostazioni");
-				outtextxy(420, 640, "+ : zoom in ");
-				outtextxy(420, 660, "- : zoom out");
 
 				double cy = 0;	// Valore calcolato di P(x) per il punto corrente
 				double cy2 = 0; // Valore calcolato di R(x) per il punto corrente
@@ -1417,7 +1414,7 @@ int main()
 				double y2pre = 0;
 
 				// Campionamento e disegno dei punti ogni 0.5 unità nell'intervallo [-5, 5]
-				for (double i = -5; i <= 5; i += 0.5)
+				for (double i = -20; i <= 20; i += 0.5)
 				{
 
 					cy = 0;
@@ -1439,19 +1436,19 @@ int main()
 					// Disegna il punto di P(x) solo se rientra nell'area del grafico
 
 					// Imposta il colore scelto per P(x)
-					if (col1 == 'r')
+					if (col1 == 'R')
 					{
 						setcolor(RED);
 					}
-					else if (col1 == 'y')
+					else if (col1 == 'Y')
 					{
 						setcolor(YELLOW);
 					}
-					else if (col1 == 'c')
+					else if (col1 == 'C')
 					{
 						setcolor(CYAN);
 					}
-					else if (col1 == 'b')
+					else if (col1 == 'B')
 					{
 						setcolor(BLUE);
 					}
@@ -1476,26 +1473,32 @@ int main()
 					// Disegna il punto di R(x) solo se rientra nell'area del grafico
 
 					// i punti di intersezione sono segnati in verde e sono piu grossi dei normali
+					if ( uguali ) {
+						setcolor( WHITE );
+						outtextxy( 450 , 250 , "coincidenti");
+					}
+					else if ( !uguali ) {
 					if (x1 == x2 && y1 == y2)
 					{
 						setcolor(GREEN);
 						circle(x2, y2, 3);
 					}
+				}
 
 					// Imposta il colore scelto per R(x)
-					if (col2 == 'r')
+					if (col2 == 'R')
 					{
 						setcolor(RED);
 					}
-					else if (col2 == 'y')
+					else if (col2 == 'Y')
 					{
 						setcolor(YELLOW);
 					}
-					else if (col2 == 'c')
+					else if (col2 == 'C')
 					{
 						setcolor(CYAN);
 					}
-					else if (col2 == 'b')
+					else if (col2 == 'B')
 					{
 						setcolor(BLUE);
 					}
@@ -1507,6 +1510,20 @@ int main()
 					x2pre = x2;
 					y2pre = y2;
 				}
+				
+				setcolor( WHITE );
+				rectangle( 0 , 601 , 601 , 702 );
+				setcolor( BLACK );
+				for ( int i = 1 ; i < 300 ; i++ ) {
+					rectangle( 0 + i , 601 + i , 601 - i , 1002 - i );
+				}
+				setcolor( WHITE );
+				outtextxy(320, 10, "Y");
+				outtextxy(575, 320, "X");
+				line(400, 601, 400, 702);
+				outtextxy(420, 620, "i : impostazioni");
+				outtextxy(420, 640, "+ : zoom in ");
+				outtextxy(420, 660, "- : zoom out");
 
 				// Creazione del polinomio in formato string per aggiungerlo al grafico
 				while (frase)
@@ -1630,19 +1647,19 @@ int main()
 				settextstyle(2, 0, 5);
 
 				// Etichetta P(x) con il suo colore
-				if (col1 == 'r')
+				if (col1 == 'R')
 				{
 					setcolor(RED);
 				}
-				else if (col1 == 'y')
+				else if (col1 == 'Y')
 				{
 					setcolor(YELLOW);
 				}
-				else if (col1 == 'c')
+				else if (col1 == 'C')
 				{
 					setcolor(CYAN);
 				}
-				else if (col1 == 'b')
+				else if (col1 == 'B')
 				{
 					setcolor(BLUE);
 				}
@@ -1651,19 +1668,19 @@ int main()
 				outtextxy(71, 621, poli1.c_str());
 
 				// Etichetta R(x) con il suo colore
-				if (col2 == 'r')
+				if (col2 == 'R')
 				{
 					setcolor(RED);
 				}
-				else if (col2 == 'y')
+				else if (col2 == 'Y')
 				{
 					setcolor(YELLOW);
 				}
-				else if (col2 == 'c')
+				else if (col2 == 'C')
 				{
 					setcolor(CYAN);
 				}
-				else if (col2 == 'b')
+				else if (col2 == 'B')
 				{
 					setcolor(BLUE);
 				}
@@ -1680,7 +1697,7 @@ int main()
 				system("cls");
 
 				// Se il tasto non è un comando riconosciuto ('i', '+', '-'), esce dalla modalità grafica
-				if (funzione != 'i' && funzione != '+' && funzione != '-')
+				if (funzione != 'I' && funzione != '+' && funzione != '-')
 				{
 					break;
 				}
