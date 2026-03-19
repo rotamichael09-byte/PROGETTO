@@ -204,7 +204,7 @@ int main()
 			} while (true);
 
 			cout << "\n";
-			// Acquisizione dei coefficienti del SECONDO polinomio
+			// Acquisizione dei coefficienti del secondo polinomio
 
 			for (int i = numeri2; i >= 0; i--)
 			{
