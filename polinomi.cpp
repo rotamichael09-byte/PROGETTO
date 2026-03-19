@@ -1291,7 +1291,6 @@ int main()
 
 				while (personalizzazione)
 				{
-				  cout << "\033[1;33m";
 				 cout << "\033[1;33m";
 				 cout << "  ____ ____   _    _____ ___ ____ ___  " << endl;
 				 cout << " / ___|  _ \\ / \\  |  ___|_ _/ ___/ _ \\ " << endl;
